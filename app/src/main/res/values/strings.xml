@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">PsyHeart</string>
+    <string name="start">Let\'s Start!</string>
+    <string name="msg_splash_page">Find peace and balance in your life through the power of sound therapy</string>
+    <string name="title_splash_page">Healing Sounds and Sound Therapy</string>
+    <string name="splash_background">splash background</string>
+    <string name="login_background">Login background</string>
+    <string name="title_login">Login</string>
+    <string name="email">Email\n</string>
+    <string name="email_invalid">Invalid email format</string>
+    <string name="password">Password\n</string>
+    <string name="pwd_min8_msg">Password must be at least 8 characters long</string>
+    <string name="login">Sign In\n</string>
+    <string name="name">Name\n</string>
+    <string name="signup">Sign Up\n</string>
+    <string name="signup_bg">sign up background\n</string>
+    <string name="msg_login">Don\'t habe an account?</string>
+    <string name="sign_up">Sign Up</string>
+
 </resources>
