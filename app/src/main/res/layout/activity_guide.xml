@@ -55,15 +55,17 @@
 
   <Button
       android:id="@+id/button_next"
-      android:layout_width="556dp"
-      android:layout_height="65dp"
+      android:layout_width="562dp"
+      android:layout_height="75dp"
       android:backgroundTint="@color/blue"
       android:padding="16dp"
       android:text="@string/next_button_text"
       android:textColor="@color/white"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.421"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/questionnaireGuideTextView3" />
+      app:layout_constraintTop_toBottomOf="@+id/questionnaireGuideTextView3"
+      app:layout_constraintVertical_bias="0.931" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
