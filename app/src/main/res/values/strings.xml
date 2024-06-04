@@ -17,4 +17,27 @@
     <string name="msg_login">Don\'t have an account?</string>
     <string name="sign_up">Sign Up</string>
 
+    <string name="questionnaire">Questionnaire</string>
+    <string name="question1">What kind of condition do you feel?</string>
+    <string name="button_depression">Depression</string>
+    <string name="button_anxiety">Anxiety</string>
+    <string name="button_sleeplessness">Sleeplessnessy</string>
+    <string name="question2">What therapeutic needs do you have?</string>
+    <string name="button_relaxation">Relaxation</string>
+    <string name="button_motivation">Motivation</string>
+    <string name="button_positive_emotion_reinforcement">Positive Emotion Reinforcement</string>
+    <string name="button_submit">Submit</string>
+
+    <string name="questionnaire_guide">Questionnaire Guide</string>
+    <string name="questionnaire_guide_text">
+        Please take a moment to answer a few simple questions to help us better understand your needs.
+        Your answers will help us recommend sound therapy that is tailored to your condition and preferences.
+        Sound therapy has been shown to be beneficial in improving mental and physical health, including reducing stress and anxiety, and also improving sleep quality.
+        We are committed to providing you with the best possible sound therapy experience.
+        Please answer the questions honestly and openly.
+        Thank you for your time and cooperation!
+    </string>
+    <string name="next_button_text">Next</string>
+
+
 </resources>
