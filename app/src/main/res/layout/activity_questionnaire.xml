@@ -1,10 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.questionnaire.QuestionnaireActivity">
+
+    <LinearLayout
+        android:id="@+id/questionnaire_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/questionnaire"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question1"
+            android:textSize="18sp"
+            android:padding="16dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_condition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_button_depression"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_depression" />
+
+            <RadioButton
+                android:id="@+id/radio_button_anxiety"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_anxiety" />
+
+            <RadioButton
+                android:id="@+id/radio_button_sleeplessness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_sleeplessness" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/question2"
+            android:textSize="18sp"
+            android:padding="16dp" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_need"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_button_relaxation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_relaxation" />
+
+            <RadioButton
+                android:id="@+id/radio_button_motivation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_motivation" />
+
+            <RadioButton
+                android:id="@+id/radio_button_positive_emotion_reinforcement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_positive_emotion_reinforcement" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:text="@string/button_submit"
+            android:textColor="@color/white"
+            android:padding="16dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
