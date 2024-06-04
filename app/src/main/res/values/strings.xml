@@ -29,13 +29,18 @@
     <string name="button_submit">Submit</string>
 
     <string name="questionnaire_guide">Questionnaire Guide</string>
-    <string name="questionnaire_guide_text">
-        Please take a moment to answer a few simple questions to help us better understand your needs.
-        Your answers will help us recommend sound therapy that is tailored to your condition and preferences.
-        Sound therapy has been shown to be beneficial in improving mental and physical health, including reducing stress and anxiety, and also improving sleep quality.
-        We are committed to providing you with the best possible sound therapy experience.
+    <string name="questionnaire_guide_text_1">
+       Please take a moment to answer a few simple questions.
+        Your responses will help us better understand your specific needs and preferences,
+        which is crucial for recommending the most suitable sound therapy treatment.
+    </string>
+    <string name="questionnaire_guide_text_2">
+       Sound therapy has been shown to be beneficial in improving mental and physical health,
+        including reducing stress and anxiety, and also improving sleep quality.
+    </string>
+    <string name="questionnaire_guide_text_3">
+      We are committed to providing you with the best possible sound therapy experience.
         Please answer the questions honestly and openly.
-        Thank you for your time and cooperation!
     </string>
     <string name="next_button_text">Next</string>
 
