@@ -14,7 +14,7 @@
     <string name="name">Name\n</string>
     <string name="signup">Sign Up\n</string>
     <string name="signup_bg">sign up background\n</string>
-    <string name="msg_login">Don\'t habe an account?</string>
+    <string name="msg_login">Don\'t have an account?</string>
     <string name="sign_up">Sign Up</string>
 
 </resources>
