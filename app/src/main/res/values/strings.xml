@@ -21,7 +21,7 @@
     <string name="question1">What kind of condition do you feel?</string>
     <string name="button_depression">Depression</string>
     <string name="button_anxiety">Anxiety</string>
-    <string name="button_sleeplessness">Sleeplessnessy</string>
+    <string name="button_sleeplessness">Sleeplessness</string>
     <string name="question2">What therapeutic needs do you have?</string>
     <string name="button_relaxation">Relaxation</string>
     <string name="button_motivation">Motivation</string>
@@ -38,6 +38,11 @@
         Thank you for your time and cooperation!
     </string>
     <string name="next_button_text">Next</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="msg_logout_page">Thank you for trusting us to accompany you throughout your days.</string>
+    <string name="title_logout_page">See you next time!</string>
+    <string name="logout_background">Logout background</string>
 
 
 </resources>
