@@ -48,6 +48,9 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Home</string>
     <string name="title_discover">Discover</string>
+    <string name="image_discover">image discover</string>
+    <string name="relax_title">Relax</string>
+    <string name="discover_title_msg">Find Your Sound Therapy</string>
     <string name="title_profile">Profile</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="signup_msg">Register</string>
