@@ -1,4 +1,4 @@
-package com.capstone.psyheart.ui.bottom_option.home
+package com.capstone.psyheart.ui.bottom_navigation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

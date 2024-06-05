@@ -1,4 +1,4 @@
-package com.capstone.psyheart.ui.bottom_option.profile
+package com.capstone.psyheart.ui.bottom_navigation.profile
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
