@@ -7,65 +7,80 @@
     android:layout_height="match_parent"
     tools:context=".ui.questionnaire.GuideActivity">
 
-  <TextView
-      android:id="@+id/questionnaireGuide"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="188dp"
-      android:layout_marginTop="76dp"
-      android:gravity="center"
-      android:text="@string/questionnaire_guide"
-      android:textSize="24sp"
-      android:textStyle="bold"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/questionnaireGuide"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="@string/questionnaire_guide"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <TextView
-      android:id="@+id/questionnaireGuideTextView1"
-      android:layout_width="558dp"
-      android:layout_height="86dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="144dp"
-      android:text="@string/questionnaire_guide_text_1"
-      android:textSize="18sp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/questionnaireGuideTextView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/questionnaire_guide_text_1"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/questionnaireGuide" />
 
-  <TextView
-      android:id="@+id/questionnaireGuideTextView2"
-      android:layout_width="549dp"
-      android:layout_height="77dp"
-      android:layout_marginStart="20dp"
-      android:layout_marginTop="256dp"
-      android:text="@string/questionnaire_guide_text_2"
-      android:textSize="18sp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/questionnaireGuideTextView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/questionnaire_guide_text_2"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/questionnaireGuideTextView1" />
 
-  <TextView
-      android:id="@+id/questionnaireGuideTextView3"
-      android:layout_width="556dp"
-      android:layout_height="61dp"
-      android:layout_marginStart="20dp"
-      android:layout_marginTop="352dp"
-      android:text="@string/questionnaire_guide_text_3"
-      android:textSize="18sp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/questionnaireGuideTextView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/questionnaire_guide_text_3"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/questionnaireGuideTextView2" />
 
-  <Button
-      android:id="@+id/button_next"
-      android:layout_width="562dp"
-      android:layout_height="75dp"
-      android:backgroundTint="@color/blue"
-      android:padding="16dp"
-      android:text="@string/next_button_text"
-      android:textColor="@color/white"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.421"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/questionnaireGuideTextView3"
-      app:layout_constraintVertical_bias="0.931" />
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/blue"
+        android:padding="12dp"
+        android:text="@string/next_button_text"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/questionnaireGuideTextView3"
+        app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

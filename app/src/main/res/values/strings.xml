@@ -6,17 +6,16 @@
     <string name="splash_background">splash background</string>
     <string name="login_background">Login background</string>
     <string name="title_login">Login</string>
-    <string name="email">Email\n</string>
+    <string name="email">Email</string>
     <string name="email_invalid">Invalid email format</string>
-    <string name="password">Password\n</string>
+    <string name="password">Password</string>
     <string name="pwd_min8_msg">Password must be at least 8 characters long</string>
-    <string name="login">Sign In\n</string>
-    <string name="name">Name\n</string>
-    <string name="signup">Sign Up\n</string>
-    <string name="signup_bg">sign up background\n</string>
+    <string name="login">Sign In</string>
+    <string name="name">Name</string>
+    <string name="signup">Sign Up</string>
+    <string name="signup_bg">sign up background</string>
     <string name="msg_login">Don\'t have an account?</string>
     <string name="sign_up">Sign Up</string>
-
     <string name="questionnaire">Questionnaire</string>
     <string name="question1">What kind of condition do you feel?</string>
     <string name="button_depression">Depression</string>
@@ -27,10 +26,9 @@
     <string name="button_motivation">Motivation</string>
     <string name="button_positive_emotion_reinforcement">Positive Emotion Reinforcement</string>
     <string name="button_submit">Submit</string>
-
     <string name="questionnaire_guide">Questionnaire Guide</string>
     <string name="questionnaire_guide_text_1">
-       Please take a moment to answer a few simple questions.
+       Please take a moment to answer <b>a few simple questions.</b>
         Your responses will help us better understand your specific needs and preferences,
         which is crucial for recommending the most suitable sound therapy treatment.
     </string>
@@ -43,11 +41,22 @@
         Please answer the questions honestly and openly.
     </string>
     <string name="next_button_text">Next</string>
-
     <string name="sign_in">Sign In</string>
     <string name="msg_logout_page">Thank you for trusting us to accompany you throughout your days.</string>
     <string name="title_logout_page">See you next time!</string>
     <string name="logout_background">Logout background</string>
-
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_discover">Discover</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="signup_msg">Please enter your data first!</string>
+    <string name="home_title_msg">Your current mood is Relax</string>
+    <string name="home_msg">This is recommended songs for you</string>
+    <string name="song_title">Song Title</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="time_song">time song</string>
+    <string name="image_song">image song</string>
+    <string name="image_play_music">image play music</string>
 
 </resources>

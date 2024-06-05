@@ -13,6 +13,10 @@
         android:theme="@style/Theme.PsyHeart"
         tools:targetApi="31">
         <activity
+            android:name=".ui.HomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home" />
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
