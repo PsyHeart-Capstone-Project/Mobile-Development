@@ -50,7 +50,7 @@
     <string name="title_discover">Discover</string>
     <string name="title_profile">Profile</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="signup_msg">Please enter your data first!</string>
+    <string name="signup_msg">Register</string>
     <string name="home_title_msg">Your current mood is Relax</string>
     <string name="home_msg">This is recommended songs for you</string>
     <string name="song_title">Song Title</string>
@@ -58,5 +58,10 @@
     <string name="time_song">time song</string>
     <string name="image_song">image song</string>
     <string name="image_play_music">image play music</string>
+    <string name="previous_desc">previous music desc</string>
+    <string name="play_pause_desc">play pause music desc</string>
+    <string name="next_desc">next music desc</string>
+    <string name="time_start">00:00</string>
+    <string name="time_finish">03:45</string>
 
 </resources>
