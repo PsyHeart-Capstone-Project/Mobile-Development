@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Questionnaire"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins_regular"
+        android:padding="16dp"
+        android:text="What kind of condition do you feel?"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_condition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <RadioButton
+            android:id="@+id/radio_button_depression"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Depression" />
+
+        <RadioButton
+            android:id="@+id/radio_button_anxiety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anxiety" />
+
+        <RadioButton
+            android:id="@+id/radio_button_sleeplessness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sleeplessness" />
+
+    </RadioGroup>
+
+</LinearLayout>
