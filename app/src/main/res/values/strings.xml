@@ -66,5 +66,15 @@
     <string name="next_desc">next music desc</string>
     <string name="time_start">00:00</string>
     <string name="time_finish">03:45</string>
+    <string name="questionnaire_msg">What kind of condition do you feel?</string>
+    <string name="option1">Depression</string>
+    <string name="option2">Anxiety</string>
+    <string name="option3">Sleeplessness</string>
+    <string name="profile_title">PsyHeart</string>
+    <string name="id_email">psyheart@gmail.com</string>
+    <string name="edit_account">Edit Account</string>
+    <string name="language">Language</string>
+    <string name="theme">Theme</string>
+    <string name="logout">Logout</string>
 
 </resources>

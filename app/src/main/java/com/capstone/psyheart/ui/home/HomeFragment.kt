@@ -1,4 +1,4 @@
-package com.capstone.psyheart.ui.bottom_navigation.discover
+package com.capstone.psyheart.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.capstone.psyheart.databinding.FragmentDiscoverBinding
+import com.capstone.psyheart.databinding.FragmentHomeBinding
 
-class DiscoverFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private var _binding: FragmentDiscoverBinding? = null
+    private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,16 +22,16 @@ class DiscoverFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val discoverViewModel =
-            ViewModelProvider(this)[DiscoverViewModel::class.java]
+        val homeViewModel =
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
-        _binding = FragmentDiscoverBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        discoverViewModel.text.observe(viewLifecycleOwner) {
+        /*val textView: TextView = binding.homeTitleText
+        homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
-        }
+        }*/
         return root
     }
 

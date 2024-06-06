@@ -5,6 +5,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import com.capstone.psyheart.R
+import com.capstone.psyheart.utils.isValidEmail
 import com.google.android.material.textfield.TextInputEditText
 
 class CustomEmailText : TextInputEditText {
@@ -49,7 +50,4 @@ class CustomEmailText : TextInputEditText {
         })
     }
 
-    private fun isValidEmail(email: String): Boolean {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
 }

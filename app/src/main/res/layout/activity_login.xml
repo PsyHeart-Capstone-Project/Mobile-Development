@@ -20,13 +20,12 @@
         app:srcCompat="@drawable/image_signin" />
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/loginTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/title_login"
         android:textSize="20sp"
@@ -37,17 +36,16 @@
         tools:alpha="100" />
 
     <TextView
-        android:id="@+id/emailTextView"
+        android:id="@+id/emailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:alpha="0"
         android:fontFamily="@font/poppins_regular"
         android:paddingTop="16dp"
         android:text="@string/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle"
         tools:alpha="100" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -57,11 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
-        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextView"
+        app:layout_constraintTop_toBottomOf="@+id/emailText"
         app:startIconDrawable="@drawable/ic_email"
         tools:alpha="100">
 
@@ -75,12 +71,11 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/passwordTextView"
+        android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:alpha="0"
         android:fontFamily="@font/poppins_regular"
         android:text="@string/password"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,12 +89,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         app:endIconMode="password_toggle"
-        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText"
         app:startIconDrawable="@drawable/ic_lock"
         tools:alpha="100">
 
@@ -117,11 +110,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:backgroundTint="@color/blue"
-        android:fontFamily="@font/poppins_regular"
         android:padding="12dp"
         android:text="@string/login"
         android:textColor="@color/white"
@@ -138,7 +129,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:fontFamily="@font/poppins_regular"
         android:text="@string/msg_login"
         android:textAlignment="center"
@@ -153,7 +143,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:fontFamily="@font/poppins_regular"
         android:text="@string/sign_up"
         android:textAlignment="center"

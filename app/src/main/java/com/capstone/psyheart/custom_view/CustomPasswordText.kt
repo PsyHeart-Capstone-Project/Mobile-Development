@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import com.capstone.psyheart.R
 import com.capstone.psyheart.constants.Constants
+import com.capstone.psyheart.utils.validateMinPassword
 import com.google.android.material.textfield.TextInputEditText
 
 class CustomPasswordText : TextInputEditText {
@@ -39,7 +40,7 @@ class CustomPasswordText : TextInputEditText {
     }
 
     private fun validatePassword(password: String) {
-        if (password.length < Constants.MIN_PASSWORD_LENGTH) {
+        if (validateMinPassword(password)) {
             this@CustomPasswordText.error = context.getString(R.string.pwd_min8_msg)
         } else {
             this@CustomPasswordText.error = null

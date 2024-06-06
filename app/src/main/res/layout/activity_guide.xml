@@ -8,7 +8,7 @@
     tools:context=".ui.questionnaire.GuideActivity">
 
     <TextView
-        android:id="@+id/questionnaireGuide"
+        android:id="@+id/titleGuide"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/questionnaireGuideTextView1"
+        android:id="@+id/guideDesc1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -34,10 +34,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/questionnaireGuide" />
+        app:layout_constraintTop_toBottomOf="@id/titleGuide" />
 
     <TextView
-        android:id="@+id/questionnaireGuideTextView2"
+        android:id="@+id/guideDesc2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -48,10 +48,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/questionnaireGuideTextView1" />
+        app:layout_constraintTop_toBottomOf="@id/guideDesc1" />
 
     <TextView
-        android:id="@+id/questionnaireGuideTextView3"
+        android:id="@+id/guideDesc3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -62,10 +62,10 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/questionnaireGuideTextView2" />
+        app:layout_constraintTop_toBottomOf="@id/guideDesc2" />
 
     <Button
-        android:id="@+id/button_next"
+        android:id="@+id/buttonNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/questionnaireGuideTextView3"
+        app:layout_constraintTop_toBottomOf="@id/guideDesc3"
         app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

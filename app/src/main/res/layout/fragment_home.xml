@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bottom_navigation.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/homeTitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="@string/home_title_msg"
         android:textSize="24sp"
-        android:fontFamily="@font/poppins_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,20 +23,20 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/descTextView"
+        android:id="@+id/descHomeText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
+
+        android:fontFamily="@font/poppins_regular"
         android:gravity="center"
         android:text="@string/home_msg"
         android:textSize="14sp"
-        android:fontFamily="@font/poppins_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/homeTitleText"
         tools:alpha="100" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,8 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descTextView"
-        app:layout_constraintTop_toTopOf="@id/descTextView"
+        app:layout_constraintTop_toBottomOf="@id/descHomeText"
+        app:layout_constraintTop_toTopOf="@id/descHomeText"
         tools:listitem="@layout/item_song" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
