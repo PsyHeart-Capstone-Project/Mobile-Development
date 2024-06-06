@@ -5,107 +5,39 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.questionnaire.QuestionnaireActivity">
+    tools:context=".ui.questionnaire.GuideActivity">
 
-    <LinearLayout
-        android:id="@+id/questionnaire_layout"
+    <TextView
+        android:id="@+id/questionnaireGuide"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="@string/questionnaire"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/poppins_regular"
+        android:padding="12dp"
+        android:text="@string/button_submit"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintVertical_bias="0.8" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/questionnaire"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:padding="16dp"
-            android:text="@string/question1"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins_regular"/>
-
-        <RadioGroup
-            android:id="@+id/radio_group_condition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/radio_button_depression"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_depression" />
-
-            <RadioButton
-                android:id="@+id/radio_button_anxiety"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_anxiety" />
-
-            <RadioButton
-                android:id="@+id/radio_button_sleeplessness"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_sleeplessness" />
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="@string/question2"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <RadioGroup
-            android:id="@+id/radio_group_need"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/radio_button_relaxation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_relaxation" />
-
-            <RadioButton
-                android:id="@+id/radio_button_motivation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_motivation" />
-
-            <RadioButton
-                android:id="@+id/radio_button_positive_emotion_reinforcement"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_positive_emotion_reinforcement" />
-        </RadioGroup>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="@color/blue"
-            android:padding="12dp"
-            android:text="@string/button_submit"
-            android:textSize="18sp"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
