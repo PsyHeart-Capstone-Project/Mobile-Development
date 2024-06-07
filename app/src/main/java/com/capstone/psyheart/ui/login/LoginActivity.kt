@@ -3,6 +3,7 @@ package com.capstone.psyheart.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -32,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
         hideActionBar()
         registerButtonHandler()
         loginButtonHandler()
-        setMyButtonEnable()
+//        setMyButtonEnable()
 
     }
 
@@ -51,9 +52,12 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.loginEmail.text.toString()
             val password = binding.loginPassword.text.toString()
+            Log.e("test login", email )
+            Log.e("test login", password )
 
             if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
                 handlingLogin(email, password)
+                Log.e("test login", "sukses" )
             } else {
                 Toast.makeText(
                     this,
@@ -68,7 +72,8 @@ class LoginActivity : AppCompatActivity() {
         viewModel.login(email, password)
 
             viewModel.resultLogin.observe(this@LoginActivity) { result ->
-            if (result != null) {
+                Log.e("test login", result.toString() )
+                if (result != null) {
                 when (result) {
                     is ResultData.Loading -> {
                         loadingHandler(true)

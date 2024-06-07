@@ -17,5 +17,11 @@ class RegisterActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        hideActionBar()
+
+    }
+    private fun hideActionBar() {
+        supportActionBar?.hide()
     }
 }

@@ -4,4 +4,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0074D9</color>
     <color name="red">#FF0000</color>
+
+    <color name="primaryColor">#0074D9</color>
+    <color name="primaryColorVariant">#005bb5</color>
+    <color name="onPrimaryColor">#FFFFFF</color>
+
+    <color name="secondaryColor">#FF4081</color>
+    <color name="secondaryColorVariant">#C60055</color>
+    <color name="onSecondaryColor">#FFFFFF</color>
+
 </resources>

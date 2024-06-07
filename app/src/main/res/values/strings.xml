@@ -84,7 +84,7 @@
     <string name="edit_profile_full_name">Full Name</string>
     <string name="edit_profile_new_pwd">New Password</string>
     <string name="update_questionnaire">Update</string>
-    <string name="msg_update">Update your current condition</string>
+    <string name="msg_update">Update your condition</string>
     <string name="indonesian">Indonesian</string>
     <string name="english">English</string>
 
