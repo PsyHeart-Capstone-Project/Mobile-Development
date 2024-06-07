@@ -54,7 +54,7 @@
     <string name="title_profile">Profile</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="signup_msg">Register</string>
-    <string name="home_title_msg">Your current mood is Relax</string>
+    <string name="home_title_msg">Your current condition is </string>
     <string name="home_msg">This is recommended songs for you</string>
     <string name="song_title">Song Title</string>
     <string name="artist_name">Artist Name</string>
@@ -83,5 +83,9 @@
     <string name="edit_profile_title_msg">Save Changes</string>
     <string name="edit_profile_full_name">Full Name</string>
     <string name="edit_profile_new_pwd">New Password</string>
+    <string name="update_questionnaire">Update</string>
+    <string name="msg_update">Update your current condition</string>
+    <string name="indonesian">Indonesian</string>
+    <string name="english">English</string>
 
 </resources>
