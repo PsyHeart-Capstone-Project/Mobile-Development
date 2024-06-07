@@ -79,7 +79,6 @@
     <string name="title_personal_data">Personal Data</string>
     <string name="title_ic_back">Back</string>
     <string name="title_ic_visible">Visible</string>
-    <string name="title_ic_password">Not Visible of Password</string>
     <string name="edit_profile_title_msg">Save Changes</string>
     <string name="edit_profile_full_name">Full Name</string>
     <string name="edit_profile_new_pwd">New Password</string>
