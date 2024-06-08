@@ -87,5 +87,6 @@
     <string name="msg_update">Update your condition</string>
     <string name="indonesian">Indonesian</string>
     <string name="english">English</string>
-    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="light_theme">Light Theme </string>
 </resources>
