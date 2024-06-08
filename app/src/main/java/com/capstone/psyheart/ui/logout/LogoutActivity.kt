@@ -1,21 +1,33 @@
 package com.capstone.psyheart.ui.logout
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.capstone.psyheart.R
+import com.capstone.psyheart.databinding.ActivityLogoutBinding
+import com.capstone.psyheart.ui.login.LoginActivity
 
 class LogoutActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLogoutBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_logout)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityLogoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.start.setOnClickListener {
+            navigateToLogin()
         }
+
+        hideActionBar()
+    }
+
+    private fun navigateToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun hideActionBar() {
+        supportActionBar?.hide()
     }
 }
