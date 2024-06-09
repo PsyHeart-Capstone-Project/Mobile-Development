@@ -16,8 +16,6 @@ import com.capstone.psyheart.ui.ViewModelFactory
 import com.capstone.psyheart.ui.main.MainActivity
 import com.capstone.psyheart.ui.register.RegisterActivity
 import com.capstone.psyheart.utils.ResultData
-import com.capstone.psyheart.utils.isValidEmail
-import com.capstone.psyheart.utils.validateMinPassword
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -52,12 +50,12 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.loginEmail.text.toString()
             val password = binding.loginPassword.text.toString()
-            Log.e("test login", email )
-            Log.e("test login", password )
+            Log.e("test login", email)
+            Log.e("test login", password)
 
             if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
                 handlingLogin(email, password)
-                Log.e("test login", "sukses" )
+                Log.e("test login", "sukses")
             } else {
                 Toast.makeText(
                     this,
@@ -71,9 +69,9 @@ class LoginActivity : AppCompatActivity() {
     private fun handlingLogin(email: String, password: String) {
         viewModel.login(email, password)
 
-            viewModel.resultLogin.observe(this@LoginActivity) { result ->
-                Log.e("test login", result.toString() )
-                if (result != null) {
+        viewModel.resultLogin.observe(this@LoginActivity) { result ->
+            Log.e("test login", result.toString())
+            if (result != null) {
                 when (result) {
                     is ResultData.Loading -> {
                         loadingHandler(true)
@@ -119,11 +117,11 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun setMyButtonEnable() {
+    /*private fun setMyButtonEnable() {
         val emailEditText = binding.loginEmail.text
         val passwordEditText = binding.loginPassword.text
         binding.loginButton.isEnabled =
             isValidEmail(emailEditText.toString()) && validateMinPassword(passwordEditText.toString())
-    }
+    }*/
 
 }

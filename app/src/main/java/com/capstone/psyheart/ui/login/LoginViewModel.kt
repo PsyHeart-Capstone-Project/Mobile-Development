@@ -12,7 +12,7 @@ import com.google.gson.Gson
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
+class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _resultLogin = MutableLiveData<ResultData<LoginResponse>>()
     val resultLogin: LiveData<ResultData<LoginResponse>> = _resultLogin
@@ -31,6 +31,7 @@ class LoginViewModel(private val userRepository: UserRepository): ViewModel() {
                     val errorMessage = errorBody.message
                     _resultLogin.postValue(ResultData.Failure(errorMessage.toString()))
                 }
-            }        }
+            }
+        }
     }
 }

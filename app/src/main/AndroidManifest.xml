@@ -31,6 +31,9 @@
             android:name=".ui.questionnaire.GuideActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.logout.LogoutActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.splash_screen.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -39,9 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.logout.LogoutActivity"
-            android:exported="true" />
+
     </application>
 
 </manifest>
