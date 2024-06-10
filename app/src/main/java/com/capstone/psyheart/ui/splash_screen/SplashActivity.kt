@@ -5,6 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.TextUtils
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.psyheart.constants.Constants
 import com.capstone.psyheart.databinding.ActivitySplashBinding
@@ -26,6 +29,7 @@ class SplashActivity : AppCompatActivity() {
 
         setupPreference()
         splashScreenHandler()
+        nextButtonHandler()
         hideActionBar()
     }
 
@@ -38,18 +42,24 @@ class SplashActivity : AppCompatActivity() {
         if (!userModel.token.isNullOrEmpty()) {
             val intent = Intent(this, MainActivity::class.java)
             navigate(intent)
-        } else {
-            val intent = Intent(this, LoginActivity::class.java)
-            navigate(intent)
         }
     }
 
     private fun navigate(intent: Intent) {
-        val splashTimer: Long = Constants.SPLASH_TIMER
+        startActivity(intent)
+        finish()
+        /*val splashTimer: Long = Constants.SPLASH_TIMER
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(intent)
             finish()
-        }, splashTimer)
+        }, splashTimer)*/
+    }
+
+    private fun nextButtonHandler() {
+        binding.start.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            navigate(intent)
+        }
     }
 
     private fun hideActionBar() {
