@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.di.Injection
 import com.capstone.psyheart.ui.login.LoginViewModel
+import com.capstone.psyheart.ui.register.RegisterViewModel
 
 
 class ViewModelFactory(
@@ -20,9 +21,9 @@ class ViewModelFactory(
                 LoginViewModel(userRepository) as T
             }
 
-            /*modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
+            modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(userRepository) as T
-            }*/
+            }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

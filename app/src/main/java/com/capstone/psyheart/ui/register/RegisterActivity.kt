@@ -10,11 +10,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.psyheart.R
+import com.capstone.psyheart.databinding.ActivityLoginBinding
 import com.capstone.psyheart.databinding.ActivityRegisterBinding
 import com.capstone.psyheart.ui.ViewModelFactory
 
 class RegisterActivity : AppCompatActivity() {
-
     private val viewModel: RegisterViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
@@ -39,7 +39,6 @@ class RegisterActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        supportActionBar?.hide()
     }
 
     private fun setupAction() {
@@ -73,5 +72,4 @@ class RegisterActivity : AppCompatActivity() {
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
-
 }

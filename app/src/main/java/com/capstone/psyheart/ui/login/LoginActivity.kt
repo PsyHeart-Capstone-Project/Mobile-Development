@@ -3,7 +3,6 @@ package com.capstone.psyheart.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -28,15 +27,10 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        hideActionBar()
         registerButtonHandler()
         loginButtonHandler()
 //        setMyButtonEnable()
 
-    }
-
-    private fun hideActionBar() {
-        supportActionBar?.hide()
     }
 
     private fun registerButtonHandler() {
@@ -50,12 +44,9 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener {
             val email = binding.loginEmail.text.toString()
             val password = binding.loginPassword.text.toString()
-            Log.e("test login", email)
-            Log.e("test login", password)
 
             if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
                 handlingLogin(email, password)
-                Log.e("test login", "sukses")
             } else {
                 Toast.makeText(
                     this,
@@ -70,7 +61,6 @@ class LoginActivity : AppCompatActivity() {
         viewModel.login(email, password)
 
         viewModel.resultLogin.observe(this@LoginActivity) { result ->
-            Log.e("test login", result.toString())
             if (result != null) {
                 when (result) {
                     is ResultData.Loading -> {
@@ -116,12 +106,5 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-    /*private fun setMyButtonEnable() {
-        val emailEditText = binding.loginEmail.text
-        val passwordEditText = binding.loginPassword.text
-        binding.loginButton.isEnabled =
-            isValidEmail(emailEditText.toString()) && validateMinPassword(passwordEditText.toString())
-    }*/
 
 }
