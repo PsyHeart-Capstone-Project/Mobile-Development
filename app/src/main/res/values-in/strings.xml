@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">PsyHeart</string>
+    <string name="start">Ayo Mulai!</string>
+    <string name="msg_splash_page">Temukan kedamaian dan keseimbangan dalam hidup Anda melalui kekuatan terapi suara</string>
+    <string name="title_splash_page">Suara Penyembuhan dan Terapi Suara</string>
+    <string name="splash_background">latar belakang splash</string>
+    <string name="login_background">Latar Belakang Login</string>
+    <string name="title_login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="email_invalid">Format email tidak valid</string>
+    <string name="password">Kata Sandi</string>
+    <string name="pwd_min8_msg">Kata sandi harus minimal 8 karakter</string>
+    <string name="login">Masuk</string>
+    <string name="name">Nama</string>
+    <string name="signup">Daftar</string>
+    <string name="signup_bg">latar belakang pendaftaran</string>
+    <string name="msg_login">Tidak punya akun?</string>
+    <string name="sign_up">Daftar</string>
+    <string name="questionnaire">Kuesioner</string>
+    <string name="question1">Kondisi apa yang Anda rasakan?</string>
+    <string name="button_depression">Depresi</string>
+    <string name="button_anxiety">Kecemasan</string>
+    <string name="button_sleeplessness">Sulit Tidur</string>
+    <string name="question2">Kebutuhan terapi apa yang Anda perlukan?</string>
+    <string name="button_relaxation">Relaksasi</string>
+    <string name="button_motivation">Motivasi</string>
+    <string name="button_positive_emotion_reinforcement">Penguatan Emosi Positif</string>
+    <string name="button_submit">Kirim</string>
+    <string name="questionnaire_guide">Panduan Kuesioner</string>
+    <string name="questionnaire_guide_text_1">
+        Silakan luangkan waktu untuk menjawab <b>beberapa pertanyaan sederhana.</b>
+        Jawaban Anda akan membantu kami memahami kebutuhan dan preferensi Anda secara lebih baik,
+        yang sangat penting untuk merekomendasikan perawatan terapi suara yang paling sesuai.
+    </string>
+    <string name="questionnaire_guide_text_2">
+        Terapi suara terbukti bermanfaat dalam meningkatkan kesehatan mental dan fisik,
+        termasuk mengurangi stres dan kecemasan, serta meningkatkan kualitas tidur.
+    </string>
+    <string name="questionnaire_guide_text_3">
+        Kami berkomitmen untuk memberikan pengalaman terapi suara terbaik untuk Anda.
+        Silakan jawab pertanyaan dengan jujur dan terbuka.
+    </string>
+    <string name="next_button_text">Selanjutnya</string>
+    <string name="sign_in">Masuk</string>
+    <string name="msg_logout_page">Terima kasih telah mempercayai kami untuk menemani Anda sepanjang hari</string>
+    <string name="title_logout_page">Sampai jumpa lagi!</string>
+    <string name="logout_background">Latar Belakang Logout</string>
+    <string name="title_activity_home">AktivitasUtama</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_discover">Jelajahi</string>
+    <string name="image_discover">gambar jelajahi</string>
+    <string name="relax_title">Santai</string>
+    <string name="discover_title_msg">Temukan Terapi Suara Anda</string>
+    <string name="title_profile">Profil</string>
+    <string name="title_activity_main">AktivitasUtama</string>
+    <string name="signup_msg">Daftar</string>
+    <string name="home_title_msg">Kondisi Anda saat ini adalah </string>
+    <string name="home_msg">Ini adalah lagu yang direkomendasikan untuk Anda</string>
+    <string name="song_title">Judul Lagu</string>
+    <string name="artist_name">Nama Artis</string>
+    <string name="time_song">waktu lagu</string>
+    <string name="image_song">gambar lagu</string>
+    <string name="image_play_music">gambar putar musik</string>
+    <string name="previous_desc">deskripsi musik sebelumnya</string>
+    <string name="play_pause_desc">deskripsi putar/jeda musik</string>
+    <string name="next_desc">deskripsi musik selanjutnya</string>
+    <string name="time_start">00:00</string>
+    <string name="time_finish">03:45</string>
+    <string name="questionnaire_msg">Kondisi apa yang Anda rasakan?</string>
+    <string name="option1">Depresi</string>
+    <string name="option2">Kecemasan</string>
+    <string name="option3">Sulit Tidur</string>
+    <string name="profile_title">PsyHeart</string>
+    <string name="id_email">psyheart@gmail.com</string>
+    <string name="edit_account">Edit Akun</string>
+    <string name="language">Bahasa</string>
+    <string name="theme">Tema</string>
+    <string name="logout">Keluar</string>
+    <string name="title_personal_data">Data Pribadi</string>
+    <string name="title_ic_back">Kembali</string>
+    <string name="title_ic_visible">Tampilkan</string>
+    <string name="edit_profile_title_msg">Simpan Perubahan</string>
+    <string name="edit_profile_full_name">Nama Lengkap</string>
+    <string name="edit_profile_new_pwd">Kata Sandi Saat Ini</string>
+    <string name="edit_profile_confirm_pwd">Kata Sandi Baru</string>
+    <string name="update_questionnaire">Perbarui</string>
+    <string name="msg_update">Perbarui kondisi Anda</string>
+    <string name="indonesian">Bahasa Indonesia</string>
+    <string name="english">Bahasa Inggris</string>
+    <string name="dark_theme">Tema Gelap</string>
+    <string name="light_theme">Tema Terang</string>
+    <string name="continue_msg">Lanjutkan</string>
+    <string name="congrats">Selamat!</string>
+</resources>
