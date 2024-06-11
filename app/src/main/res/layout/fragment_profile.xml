@@ -58,6 +58,7 @@
             android:paddingEnd="16dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
+            android:id="@+id/edit_acc"
             android:text="@string/edit_account"
             android:textSize="16sp" />
     </com.google.android.material.card.MaterialCardView>
@@ -143,6 +144,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
+            android:id="@+id/logout_text_view"
             android:text="@string/logout"
             android:textColor="@color/red"
             android:textSize="16sp" />
