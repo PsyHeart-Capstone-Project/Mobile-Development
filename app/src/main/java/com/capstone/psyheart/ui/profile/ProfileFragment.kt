@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.capstone.psyheart.R
@@ -19,7 +20,7 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private var selectedLanguage = "en" // Inisialisasi dengan bahasa Inggris sebagai default
+    private var selectedLanguage = "in" // Inisialisasi dengan bahasa Indonesia sebagai default
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
@@ -61,9 +62,13 @@ class ProfileFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle("Select Language")
             .setSingleChoiceItems(languages, checkedItem) { dialog, which ->
-                selectedLanguage = if (which == 0) "in" else "en"
-                saveSelectedLanguage()
-                updateAppLanguage()
+                val newLanguage = if (which == 0) "in" else "en"
+                if (selectedLanguage!= newLanguage) {
+                    selectedLanguage = newLanguage
+                    saveSelectedLanguage()
+                    updateAppLanguage()
+                    requireActivity().recreate() // Restart the activity to apply language changes
+                }
                 dialog.dismiss()
             }
             .setNegativeButton("Cancel") { dialog, _ ->
@@ -73,13 +78,12 @@ class ProfileFragment : Fragment() {
     }
 
     private fun updateAppLanguage() {
-        val locale = if (selectedLanguage == "en") Locale.ENGLISH else Locale("in")
+        val locale = if (selectedLanguage == "in") Locale("in") else Locale.ENGLISH
         Locale.setDefault(locale)
         val resources = resources
         val configuration = resources.configuration
         configuration.setLocale(locale)
         resources.updateConfiguration(configuration, resources.displayMetrics)
-        requireActivity().recreate() // Memanggil recreate() untuk menerapkan perubahan bahasa
     }
 
     private fun saveSelectedLanguage() {
@@ -87,7 +91,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun loadSelectedLanguage() {
-        selectedLanguage = sharedPreferences.getString("selected_language", "en") ?: "en"
+        selectedLanguage = sharedPreferences.getString("selected_language", "in")?: "in"
     }
 
     override fun onDestroyView() {
