@@ -78,7 +78,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun updateAppLanguage() {
-        val locale = if (selectedLanguage == "in") Locale("in") else Locale.ENGLISH
+        val locale = if (selectedLanguage == "in") Locale("id") else Locale.ENGLISH
         Locale.setDefault(locale)
         val resources = resources
         val configuration = resources.configuration
