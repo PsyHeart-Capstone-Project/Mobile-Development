@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.capstone.psyheart.R
 import com.capstone.psyheart.databinding.FragmentProfileBinding
+import com.capstone.psyheart.model.UserModel
+import com.capstone.psyheart.preference.UserPreference
 import com.capstone.psyheart.ui.logout.LogoutActivity
 import java.util.Locale
 
@@ -19,15 +21,21 @@ class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private var selectedLanguage = "in" // Inisialisasi dengan bahasa Indonesia sebagai default
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var userPreference: UserPreference // Deklarasi variabel untuk UserPreference
 
     companion object {
         const val LIGHT_THEME = 0
         const val DARK_THEME = 1
     }
 
+    private var selectedLanguage = "in" // Inisialisasi dengan bahasa Indonesia sebagai default
     private var selectedTheme = LIGHT_THEME
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        userPreference = UserPreference(requireContext()) // Inisialisasi UserPreference
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +53,13 @@ class ProfileFragment : Fragment() {
         updateAppLanguage()
         updateAppTheme()
         setupViews()
+
+        // Dapatkan data pengguna dari UserPreference
+        val userModel = userPreference.getUser()
+
+        // Atur teks pada profileTitleText dan descProfileText berdasarkan data pengguna
+        binding.profileTitleText.text = userModel.name
+        binding.descProfileText.text = userModel.userId
     }
 
     private fun setupViews() {
