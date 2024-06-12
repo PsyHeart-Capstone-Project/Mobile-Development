@@ -135,7 +135,8 @@
                 android:layout_centerVertical="true"
                 android:background="@null"
                 android:contentDescription="@string/title_ic_visible"
-                android:src="@drawable/ic_visible" />
+                android:src="@drawable/ic_visible"
+                app:tint="?attr/colorOnSurface" />
 
         </RelativeLayout>
 
@@ -173,7 +174,8 @@
                 android:layout_centerVertical="true"
                 android:background="@null"
                 android:contentDescription="@string/title_ic_visible"
-                android:src="@drawable/ic_visible" />
+                android:src="@drawable/ic_visible"
+                app:tint="?attr/colorOnSurface" />
 
         </RelativeLayout>
 
