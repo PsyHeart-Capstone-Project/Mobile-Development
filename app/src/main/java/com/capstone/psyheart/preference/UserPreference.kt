@@ -15,6 +15,7 @@ class UserPreference(context: Context) {
             apply()
         }
     }
+
     fun getUser(): UserModel {
         val name = prefs.getString(USER_NAME, null)
         val userId = prefs.getString(USER_ID, null)
