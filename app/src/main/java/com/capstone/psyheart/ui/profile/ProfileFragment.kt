@@ -4,21 +4,19 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import com.capstone.psyheart.R
 import com.capstone.psyheart.databinding.FragmentProfileBinding
-import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
 import com.capstone.psyheart.ui.logout.LogoutActivity
 import java.util.Locale
 
 class ProfileFragment : Fragment() {
-
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var sharedPreferences: SharedPreferences
@@ -57,9 +55,12 @@ class ProfileFragment : Fragment() {
         // Dapatkan data pengguna dari UserPreference
         val userModel = userPreference.getUser()
 
+        // Debugging Log
+        Log.d("ProfileFragment", "User Email: ${userModel.email}")
+
         // Atur teks pada profileTitleText dan descProfileText berdasarkan data pengguna
         binding.profileTitleText.text = userModel.name
-        binding.descProfileText.text = userModel.userId
+        binding.descProfileText.text = userModel.email // Tampilkan email user
     }
 
     private fun setupViews() {

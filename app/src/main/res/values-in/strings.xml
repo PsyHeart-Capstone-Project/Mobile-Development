@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PsyHeart</string>
     <string name="start">Ayo Mulai!</string>
-    <string name="msg_splash_page">Temukan kedamaian dan keseimbangan dalam hidup Anda melalui kekuatan terapi suara</string>
+    <string name="msg_splash_page">Temukan kedamaian dan keseimbangan dalam hidup anda melalui kekuatan terapi suara</string>
     <string name="title_splash_page">Suara Penyembuhan dan Terapi Suara</string>
     <string name="splash_background">latar belakang splash</string>
     <string name="login_background">Latar Belakang Login</string>
@@ -17,11 +17,11 @@
     <string name="msg_login">Tidak punya akun?</string>
     <string name="sign_up">Daftar</string>
     <string name="questionnaire">Kuesioner</string>
-    <string name="question1">Kondisi apa yang Anda rasakan?</string>
+    <string name="question1">Kondisi apa yang anda rasakan?</string>
     <string name="button_depression">Depresi</string>
     <string name="button_anxiety">Kecemasan</string>
     <string name="button_sleeplessness">Sulit Tidur</string>
-    <string name="question2">Kebutuhan terapi apa yang Anda perlukan?</string>
+    <string name="question2">Kebutuhan terapi apa yang anda perlukan?</string>
     <string name="button_relaxation">Relaksasi</string>
     <string name="button_motivation">Motivasi</string>
     <string name="button_positive_emotion_reinforcement">Penguatan Emosi Positif</string>
@@ -29,7 +29,7 @@
     <string name="questionnaire_guide">Panduan Kuesioner</string>
     <string name="questionnaire_guide_text_1">
         Silakan luangkan waktu untuk menjawab <b>beberapa pertanyaan sederhana.</b>
-        Jawaban Anda akan membantu kami memahami kebutuhan dan preferensi Anda secara lebih baik,
+        Jawaban anda akan membantu kami memahami kebutuhan dan preferensi anda secara lebih baik,
         yang sangat penting untuk merekomendasikan perawatan terapi suara yang paling sesuai.
     </string>
     <string name="questionnaire_guide_text_2">
@@ -37,12 +37,12 @@
         termasuk mengurangi stres dan kecemasan, serta meningkatkan kualitas tidur.
     </string>
     <string name="questionnaire_guide_text_3">
-        Kami berkomitmen untuk memberikan pengalaman terapi suara terbaik untuk Anda.
+        Kami berkomitmen untuk memberikan pengalaman terapi suara terbaik untuk anda.
         Silakan jawab pertanyaan dengan jujur dan terbuka.
     </string>
     <string name="next_button_text">Selanjutnya</string>
     <string name="sign_in">Masuk</string>
-    <string name="msg_logout_page">Terima kasih telah mempercayai kami untuk menemani Anda sepanjang hari</string>
+    <string name="msg_logout_page">Terima kasih telah mempercayai kami untuk menemani anda sepanjang hari</string>
     <string name="title_logout_page">Sampai jumpa lagi!</string>
     <string name="logout_background">Latar Belakang Logout</string>
     <string name="title_activity_home">AktivitasUtama</string>
@@ -54,8 +54,8 @@
     <string name="title_profile">Profil</string>
     <string name="title_activity_main">AktivitasUtama</string>
     <string name="signup_msg">Daftar</string>
-    <string name="home_title_msg">Kondisi Anda saat ini adalah </string>
-    <string name="home_msg">Ini adalah lagu yang direkomendasikan untuk Anda</string>
+    <string name="home_title_msg">Kondisi anda saat ini adalah </string>
+    <string name="home_msg">Ini adalah lagu yang direkomendasikan untuk anda</string>
     <string name="song_title">Judul Lagu</string>
     <string name="artist_name">Nama Artis</string>
     <string name="time_song">waktu lagu</string>
@@ -66,7 +66,7 @@
     <string name="next_desc">deskripsi musik selanjutnya</string>
     <string name="time_start">00:00</string>
     <string name="time_finish">03:45</string>
-    <string name="questionnaire_msg">Kondisi apa yang Anda rasakan?</string>
+    <string name="questionnaire_msg">Kondisi apa yang anda rasakan?</string>
     <string name="option1">Depresi</string>
     <string name="option2">Kecemasan</string>
     <string name="option3">Sulit Tidur</string>

@@ -28,7 +28,15 @@ class UserRepository private constructor(
     }
 
     suspend fun login(email: String, password: String): LoginResponse {
-        return apiService.login(email, password)
+        val response = apiService.login(email, password)
+        val user = UserModel(
+            name = response.loginResult.name,
+            userId = response.loginResult.userId,
+            token = response.loginResult.token,
+            email = email // Menyimpan email user yang digunakan untuk login
+        )
+        saveSession(user)
+        return response
     }
 
     companion object {
