@@ -91,4 +91,6 @@
     <string name="light_theme">Light Theme </string>
     <string name="continue_msg">Continue</string>
     <string name="congrats">Congrats!</string>
+    <string name="desc_detail_discover">Soft rhythm and slow tempo</string>
+    <string name="title_detail_discover">Sleep Therapy</string>
 </resources>

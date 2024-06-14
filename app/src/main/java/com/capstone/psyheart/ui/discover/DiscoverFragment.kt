@@ -1,38 +1,92 @@
 package com.capstone.psyheart.ui.discover
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import com.capstone.psyheart.adapter.ListSongCategoryAdapter
 import com.capstone.psyheart.databinding.FragmentDiscoverBinding
+import com.capstone.psyheart.model.CategoryItem
+import com.capstone.psyheart.ui.ViewModelFactory
+import com.capstone.psyheart.ui.home_detail.HomeDetailActivity
+import com.capstone.psyheart.utils.ResultData
 
 class DiscoverFragment : Fragment() {
 
     private var _binding: FragmentDiscoverBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var listSongCategoryAdapter: ListSongCategoryAdapter
+    private lateinit var factory: ViewModelFactory
+    private val discoverViewModel: DiscoverViewModel by viewModels { factory }
+    private lateinit var root: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val discoverViewModel =
-            ViewModelProvider(this)[DiscoverViewModel::class.java]
-
         _binding = FragmentDiscoverBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        factory = ViewModelFactory.getInstance(requireContext())
+        root = binding.root
 
-        /*val textView: TextView = binding.discoverTitleText
-        discoverViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }*/
+        discoverViewModel.getSongCategories()
+        handleSongCategory()
         return root
+    }
+
+    private fun handleSongCategory() {
+        discoverViewModel.resultSongCategories.observe(viewLifecycleOwner) { result ->
+            if (result != null) {
+                when (result) {
+                    is ResultData.Loading -> {
+                        loadingHandler(true)
+                    }
+
+                    is ResultData.Failure -> {
+                        loadingHandler(false)
+                        Log.e("DiscoverFragment", "Error: ${result.error}")
+                    }
+
+                    is ResultData.Success -> {
+                        loadingHandler(false)
+                        Log.d("DiscoverFragment", "Success: ${result.data.data.categories.size} categories fetched")
+                        setupView(requireContext(), result.data.data.categories)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun loadingHandler(isLoading: Boolean) {
+        // Handle loading state (e.g., show/hide progress bar)
+    }
+
+    private fun setupView(context: Context, categories: List<CategoryItem>) {
+        val discoverRv = binding.discoverRecyclerView
+
+        discoverRv.layoutManager = GridLayoutManager(context, 2)
+
+        val paddingBottom = 80 // Adjust the value as needed
+        discoverRv.setPadding(discoverRv.paddingLeft, discoverRv.paddingTop, discoverRv.paddingRight, paddingBottom)
+        discoverRv.clipToPadding = false
+
+        listSongCategoryAdapter = ListSongCategoryAdapter(categories)
+        listSongCategoryAdapter.setOnItemClickCallback(object : ListSongCategoryAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: CategoryItem) {
+                val intent = Intent(context, HomeDetailActivity::class.java)
+                startActivity(intent)
+            }
+        })
+        discoverRv.adapter = listSongCategoryAdapter
+
+        // Log statements to verify adapter is set
+        Log.d("DiscoverFragment", "RecyclerView adapter is set with ${categories.size} categories")
     }
 
     override fun onDestroyView() {

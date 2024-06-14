@@ -13,11 +13,8 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
-
     private val _resultLogin = MutableLiveData<ResultData<LoginResponse>>()
     val resultLogin: LiveData<ResultData<LoginResponse>> = _resultLogin
-
-
     fun login(email: String, password: String) {
         viewModelScope.launch {
             _resultLogin.value = ResultData.Loading

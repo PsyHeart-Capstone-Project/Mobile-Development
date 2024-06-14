@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Light Theme Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0074D9</color>
@@ -9,8 +10,23 @@
     <color name="primaryColorVariant">#005bb5</color>
     <color name="onPrimaryColor">#FFFFFF</color>
 
-    <color name="secondaryColor">#FF4081</color>
-    <color name="secondaryColorVariant">#C60055</color>
+    <color name="secondaryColor">#878787</color>
+    <color name="secondaryColorVariant">#a9a9a9</color>
     <color name="onSecondaryColor">#FFFFFF</color>
 
+    <!-- Dark Theme Colors -->
+    <color name="primaryColorDark">#80DFFF</color>
+    <color name="primaryColorVariantDark">#33BBFF</color>
+    <color name="onPrimaryColorDark">#000000</color>
+
+    <color name="secondaryColorDark">#A6A6A6</color>
+    <color name="secondaryColorVariantDark">#CCCCCC</color>
+    <color name="onSecondaryColorDark">#000000</color>
+
+    <color name="surfaceDark">#121212</color>
+    <color name="onSurfaceDark">#FFFFFF</color>
+    <color name="backgroundDark">#121212</color>
+    <color name="onBackgroundDark">#FFFFFF</color>
+    <color name="errorDark">#CF6679</color>
+    <color name="onErrorDark">#000000</color>
 </resources>

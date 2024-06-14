@@ -17,17 +17,11 @@ class LogoutActivity : AppCompatActivity() {
         binding.start.setOnClickListener {
             navigateToLogin()
         }
-
-        hideActionBar()
     }
 
     private fun navigateToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
-    }
-
-    private fun hideActionBar() {
-        supportActionBar?.hide()
     }
 }

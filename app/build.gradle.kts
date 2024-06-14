@@ -16,17 +16,16 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_URL", "\"https://story-api.dicoding.dev/v1/\"")
-
+        buildConfigField("String", "API_URL", "\"https://psyheart-api-27nemv6vxa-et.a.run.app/\"")
     }
 
     buildTypes {
         debug {
-            buildConfigField("String", "API_URL", "\"https://story-api.dicoding.dev/v1/\"")
+            buildConfigField("String", "API_URL", "\"https://psyheart-api-27nemv6vxa-et.a.run.app/\"")
         }
         release {
             isMinifyEnabled = false
-            buildConfigField("String", "API_URL", "\"https://story-api.dicoding.dev/v1/\"")
+            buildConfigField("String", "API_URL", "\"https://psyheart-api-27nemv6vxa-et.a.run.app/\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

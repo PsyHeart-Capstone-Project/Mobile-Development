@@ -30,7 +30,6 @@ class SplashActivity : AppCompatActivity() {
         setupPreference()
         splashScreenHandler()
         nextButtonHandler()
-        hideActionBar()
     }
 
     private fun setupPreference() {
@@ -60,10 +59,6 @@ class SplashActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             navigate(intent)
         }
-    }
-
-    private fun hideActionBar() {
-        supportActionBar?.hide()
     }
 
 }

@@ -6,9 +6,18 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RegisterResponse(
-    @field:SerializedName("error")
-    val error: Boolean? = null,
-
     @field:SerializedName("message")
-    val message: String? = null
+    val message: String? = null,
+
+    @field:SerializedName("data")
+    val data: RegisterResult,
+) : Parcelable
+
+@Parcelize
+data class RegisterResult(
+    @field:SerializedName("user_id")
+    val userId: String,
+
+    @field:SerializedName("token")
+    val token: String
 ) : Parcelable

@@ -1,12 +1,10 @@
 package com.capstone.psyheart.custom_view
 
 import android.content.Context
-import android.provider.SyncStateContract
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import com.capstone.psyheart.R
-import com.capstone.psyheart.constants.Constants
 import com.capstone.psyheart.utils.validateMinPassword
 import com.google.android.material.textfield.TextInputEditText
 

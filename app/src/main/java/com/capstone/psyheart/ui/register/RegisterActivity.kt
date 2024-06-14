@@ -1,5 +1,6 @@
 package com.capstone.psyheart.ui.register
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -7,12 +8,15 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.psyheart.R
-import com.capstone.psyheart.databinding.ActivityLoginBinding
 import com.capstone.psyheart.databinding.ActivityRegisterBinding
+import com.capstone.psyheart.model.RegisterResponse
+import com.capstone.psyheart.model.UserModel
+import com.capstone.psyheart.preference.UserPreference
 import com.capstone.psyheart.ui.ViewModelFactory
+import com.capstone.psyheart.ui.main.MainActivity
+import com.capstone.psyheart.utils.ResultData
 
 class RegisterActivity : AppCompatActivity() {
     private val viewModel: RegisterViewModel by viewModels {
@@ -47,26 +51,52 @@ class RegisterActivity : AppCompatActivity() {
             val email = binding.registerEmail.text.toString()
             val password = binding.registerPassword.text.toString()
 
-            showLoading(true)
             viewModel.register(name, email, password)
         }
 
-        viewModel.registerResult.observe(this) { response ->
-            showLoading(false)
-            if (response.error == null) {
-                Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show()
-            } else {
-                AlertDialog.Builder(this).apply {
-                    setTitle(R.string.congrats)
-                    setMessage("${response.message}")
-                    setPositiveButton(R.string.continue_msg) { _, _ ->
-                        finish()
+        viewModel.registerResult.observe(this@RegisterActivity) { result ->
+            if (result != null) {
+                when (result) {
+                    is ResultData.Loading -> {
+                        showLoading(true)
                     }
-                    create()
-                    show()
+
+                    is ResultData.Failure -> {
+                        showLoading(false)
+                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
+                    }
+
+                    is ResultData.Success -> {
+                        showLoading(false)
+                        Toast.makeText(
+                            this,
+                            "${getString(R.string.congrats)} ${result.data.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        saveLoginData(result.data)
+                        navigateToHome()
+                    }
                 }
             }
         }
+    }
+
+    private fun navigateToHome() {
+        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun saveLoginData(registerResponse: RegisterResponse) {
+        val userPreference = UserPreference(this)
+        val result = registerResponse.data
+        userPreference.setUser(
+            UserModel(
+                name = binding.registerName.text.toString(),
+                userId = result.userId,
+                token = result.token
+            )
+        )
     }
 
     private fun showLoading(isLoading: Boolean) {
