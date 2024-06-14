@@ -22,5 +22,8 @@ data class LoginResult(
     val userId: String,
 
     @field:SerializedName("token")
-    val token: String
+    val token: String,
+
+    @field:SerializedName("email")
+    val email: String
 ) : Parcelable
