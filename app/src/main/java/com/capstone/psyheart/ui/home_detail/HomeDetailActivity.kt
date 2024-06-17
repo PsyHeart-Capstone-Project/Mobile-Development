@@ -24,6 +24,8 @@ class HomeDetailActivity : AppCompatActivity() {
 
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var playPauseButton: ImageButton
+    private lateinit var prevButton: ImageButton
+    private lateinit var nextButton: ImageButton
     private lateinit var imageView: ImageView
     private lateinit var seekBar: SeekBar
     private lateinit var titleSong: TextView
@@ -31,10 +33,14 @@ class HomeDetailActivity : AppCompatActivity() {
     private lateinit var currentTime: TextView
     private lateinit var totalTime: TextView
 
+    private lateinit var songs: List<Songs>
+    private var currentSongIndex: Int = 0
+    private var isMediaPlayerInitialized = false
+
     private val handler = Handler(Looper.getMainLooper())
     private val updateSeekBarRunnable = object : Runnable {
         override fun run() {
-            if (mediaPlayer.isPlaying) {
+            if (isMediaPlayerInitialized && mediaPlayer.isPlaying) {
                 seekBar.progress = mediaPlayer.currentPosition
                 currentTime.text = formatTime(mediaPlayer.currentPosition)
                 handler.postDelayed(this, 1000)
@@ -58,6 +64,8 @@ class HomeDetailActivity : AppCompatActivity() {
 
     private fun initializeViews() {
         playPauseButton = findViewById(R.id.playPauseButton)
+        prevButton = findViewById(R.id.previousButton)
+        nextButton = findViewById(R.id.nextButton)
         imageView = findViewById(R.id.imageView)
         seekBar = findViewById(R.id.seekBar)
         titleSong = findViewById(R.id.titleSong)
@@ -66,38 +74,39 @@ class HomeDetailActivity : AppCompatActivity() {
         totalTime = findViewById(R.id.totalTime)
 
         playPauseButton.setOnClickListener {
-            if (mediaPlayer.isPlaying) {
-                pauseMusic()
-            } else {
-                playMusic()
+            if (isMediaPlayerInitialized) {
+                if (mediaPlayer.isPlaying) {
+                    pauseMusic()
+                } else {
+                    playMusic()
+                }
+            }
+        }
+
+        prevButton.setOnClickListener {
+            if (currentSongIndex > 0) {
+                currentSongIndex--
+                playSong(currentSongIndex)
+            }
+        }
+
+        nextButton.setOnClickListener {
+            if (currentSongIndex < songs.size - 1) {
+                currentSongIndex++
+                playSong(currentSongIndex)
             }
         }
     }
 
     private fun setupMediaPlayer() {
-        val song = intent.getParcelableExtra<Songs>(DiscoverDetailActivity.MUSIC_PLAYER) ?: return
-//        val songs = intent.getParcelableExtra<List<Songs>>(DiscoverDetailActivity.MUSIC_PLAYER) ?: return
-        titleSong.text = song.name
-        artistName.text = song.artist
-
-        mediaPlayer = MediaPlayer().apply {
-            setDataSource(song.url)
-            prepare()
-            setOnPreparedListener {
-                seekBar.max = duration
-                totalTime.text = formatTime(duration)
-            }
-            setOnCompletionListener {
-                pauseMusic()
-                mediaPlayer.seekTo(0)
-                seekBar.progress = 0
-                currentTime.text = formatTime(0)
-            }
-        }
+        mediaPlayer = MediaPlayer() // Initialize MediaPlayer here
+        songs = intent.getParcelableArrayListExtra<Songs>(DiscoverDetailActivity.MUSIC_PLAYER) ?: return
+        currentSongIndex = intent.getIntExtra("CURRENT_SONG_INDEX", 0)
+        playSong(currentSongIndex)
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                if (fromUser) {
+                if (fromUser && isMediaPlayerInitialized) {
                     mediaPlayer.seekTo(progress)
                     currentTime.text = formatTime(progress)
                 }
@@ -106,6 +115,40 @@ class HomeDetailActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+    }
+
+    private fun playSong(index: Int) {
+        val song = songs[index]
+        titleSong.text = song.name
+        artistName.text = song.artist
+
+        if (isMediaPlayerInitialized) {
+            mediaPlayer.stop()
+            mediaPlayer.reset()
+        } else {
+            isMediaPlayerInitialized = true
+        }
+
+        mediaPlayer = MediaPlayer().apply {
+            setDataSource(song.url)
+            prepare()
+            setOnPreparedListener {
+                seekBar.max = duration
+                totalTime.text = formatTime(duration)
+                playMusic()
+            }
+            setOnCompletionListener {
+                if (currentSongIndex < songs.size - 1) {
+                    currentSongIndex++
+                    playSong(currentSongIndex)
+                } else {
+                    pauseMusic()
+                    mediaPlayer.seekTo(0)
+                    seekBar.progress = 0
+                    currentTime.text = formatTime(0)
+                }
+            }
+        }
     }
 
     private fun playMusic() {
@@ -122,19 +165,51 @@ class HomeDetailActivity : AppCompatActivity() {
         handler.removeCallbacks(updateSeekBarRunnable)
     }
 
+//    private fun startImageRotation() {
+//        imageView.animate().rotationBy(360f).setDuration(10000).setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
+//            override fun onAnimationEnd(animation: Animator) {
+//                if (isMediaPlayerInitialized && mediaPlayer.isPlaying) {
+//                    startImageRotation()
+//                }
+//            }
+//        }).start()
+//    }
+
+//    private fun startImageRotation() {
+//        imageView.animate().rotationBy(360f).setDuration(10000).setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
+//            override fun onAnimationEnd(animation: Animator) {
+//                if (isMediaPlayerInitialized && mediaPlayer.isPlaying) {
+//                    startImageRotation()
+//                }
+//            }
+//
+//            override fun onAnimationCancel(animation: Animator) {
+//                imageView.animate().setListener(null) // Clean up listener on animation cancel
+//            }
+//        }).start()
+//    }
+
     private fun startImageRotation() {
-        val rotateAnimation = imageView.animate()
-            .rotationBy(360f)
-            .setDuration(10000)
-            .setInterpolator(LinearInterpolator())
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    if (mediaPlayer.isPlaying) {
-                        startImageRotation()
-                    }
+        imageView.animate().rotationBy(360f).setDuration(10000).setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
+                if (isMediaPlayerPlaying()) {
+                    startImageRotation()
                 }
-            })
-        rotateAnimation.start()
+            }
+
+            override fun onAnimationCancel(animation: Animator) {
+                imageView.animate().setListener(null) // Clean up listener on animation cancel
+            }
+        }).start()
+    }
+
+
+    private fun isMediaPlayerPlaying(): Boolean {
+        return try {
+            isMediaPlayerInitialized && mediaPlayer.isPlaying
+        } catch (e: IllegalStateException) {
+            false
+        }
     }
 
     private fun stopImageRotation() {
@@ -149,7 +224,7 @@ class HomeDetailActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (mediaPlayer.isPlaying) {
+        if (isMediaPlayerInitialized && mediaPlayer.isPlaying) {
             mediaPlayer.stop()
         }
         mediaPlayer.release()

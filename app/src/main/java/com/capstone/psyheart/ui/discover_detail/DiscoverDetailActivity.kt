@@ -79,17 +79,14 @@ class DiscoverDetailActivity : AppCompatActivity() {
         val discoverRv = binding.playlistRecyclerView
         discoverRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-//        val paddingBottom = 80
-//        discoverRv.setPadding(discoverRv.paddingLeft, discoverRv.paddingTop, discoverRv.paddingRight, paddingBottom)
-//        discoverRv.clipToPadding = false
-
         listSongAdapter = ListSongAdapter(songs)
         listSongAdapter.setOnItemClickCallback(object : ListSongAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: Songs) {
+            override fun onItemClicked(data: Songs, position: Int) {
                 val intent = Intent(context, HomeDetailActivity::class.java).apply {
-                    putExtra(MUSIC_PLAYER, data)
+                    putParcelableArrayListExtra(MUSIC_PLAYER, ArrayList(songs))
+                    putExtra("CURRENT_SONG_INDEX", position)
                 }
-                startActivity(intent)
+                context.startActivity(intent)
             }
         })
         discoverRv.adapter = listSongAdapter

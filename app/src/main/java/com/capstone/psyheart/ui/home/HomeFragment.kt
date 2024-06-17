@@ -1,31 +1,32 @@
 package com.capstone.psyheart.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.capstone.psyheart.adapter.ListSongRecommendationAdapter
-import com.capstone.psyheart.api.ApiService
+import com.capstone.psyheart.adapter.ListSongAdapter
 import com.capstone.psyheart.databinding.FragmentHomeBinding
-import com.capstone.psyheart.preference.UserPreference
+import com.capstone.psyheart.model.Songs
+import com.capstone.psyheart.ui.ViewModelFactory
+import com.capstone.psyheart.ui.discover_detail.DiscoverDetailActivity
 import com.capstone.psyheart.ui.guide.GuideActivity
-import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.capstone.psyheart.ui.home_detail.HomeDetailActivity
+import com.capstone.psyheart.ui.register.RegisterActivity
+import com.capstone.psyheart.utils.ResultData
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var apiService: ApiService
-    private lateinit var userPreference: UserPreference
+    private lateinit var listSongAdapter: ListSongAdapter
+    private lateinit var factory: ViewModelFactory
+    private val viewModel: HomeViewModel by viewModels { factory }
+    private lateinit var root: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,66 +34,78 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        factory = ViewModelFactory.getInstance(requireContext())
+        root = binding.root
+
+        viewModel.getSongRecommendation()
+        handleSong()
+        handleUpdateQuestionnaire(requireContext())
+        return root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        userPreference = UserPreference(requireContext())
+    private fun handleSong() {
+        viewModel.resultSongs.observe(viewLifecycleOwner) { result ->
+            if (result != null) {
+                when (result) {
+                    is ResultData.Loading -> {
+                        loadingHandler(true)
+                    }
 
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BODY
+                    is ResultData.Failure -> {
+                        loadingHandler(false)
+                    }
 
-        val client = OkHttpClient.Builder()
-            .addInterceptor(logging)
-            .build()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.example.com/")
-            .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        apiService = retrofit.create(ApiService::class.java)
-
-        binding.playlistRecyclerView.layoutManager = LinearLayoutManager(context)
-
-        fetchSongRecommendations()
-
-        binding.playButton.setOnClickListener {
-            navigateToGuideForUpdate()
-        }
-    }
-
-    private fun fetchSongRecommendations() {
-        lifecycleScope.launch {
-            val token = userPreference.getUser().token
-            try {
-                val response = apiService.songRecommendation("Bearer $token")
-
-                if (response.status == "success") {
-                    val adapter = ListSongRecommendationAdapter(response.data.recommendation)
-                    binding.playlistRecyclerView.adapter = adapter
-                } else {
-                    // Handle the error
-                    // For example, show a toast or log the error
+                    is ResultData.Success -> {
+                        loadingHandler(false)
+                        setupViewHeader(result.data.data.mood)
+                        setupView(requireContext(), result.data.data.recommendation)
+                    }
                 }
-            } catch (e: Exception) {
-                // Handle exceptions (e.g., network errors)
-                e.printStackTrace()
             }
         }
     }
 
-    private fun navigateToGuideForUpdate() {
-        val intent = Intent(requireContext(), GuideActivity::class.java).apply {
-            putExtra(GuideActivity.EXTRA_UPDATE_FLOW, true)
+    private fun loadingHandler(isLoading: Boolean) {
+        // Handle loading state (e.g., show/hide progress bar)
+    }
+
+    private fun setupViewHeader(mood: String) {
+        binding.homeTitleText.append(" $mood")
+    }
+
+    private fun setupView(context: Context, songs: List<Songs>) {
+        val discoverRv = binding.playlistRecyclerView
+        discoverRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        listSongAdapter = ListSongAdapter(songs)
+        listSongAdapter.setOnItemClickCallback(object : ListSongAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Songs, position: Int) {
+                val intent = Intent(context, HomeDetailActivity::class.java).apply {
+                    putParcelableArrayListExtra(DiscoverDetailActivity.MUSIC_PLAYER, ArrayList(songs))
+                    putExtra("CURRENT_SONG_INDEX", position)
+                }
+                context.startActivity(intent)
+            }
+        })
+        discoverRv.adapter = listSongAdapter
+    }
+
+    private fun navigateToGuide(context: Context) {
+        val intent = Intent(context, GuideActivity::class.java).apply {
+            putExtra(RegisterActivity.IS_NEW_USER, false)
         }
-        startActivity(intent)
+        context.startActivity(intent)
+    }
+
+    private fun handleUpdateQuestionnaire(context: Context) {
+        binding.updateButton.setOnClickListener {
+            navigateToGuide(context)
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

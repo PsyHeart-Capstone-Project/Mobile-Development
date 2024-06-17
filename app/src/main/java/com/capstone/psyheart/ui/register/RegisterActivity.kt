@@ -79,7 +79,9 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun navigateToGuide() {
-        val intent = Intent(this@RegisterActivity, GuideActivity::class.java)
+        val intent = Intent(this@RegisterActivity, GuideActivity::class.java).apply {
+            putExtra(IS_NEW_USER, true)
+        }
         startActivity(intent)
         finish()
     }
@@ -98,5 +100,9 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    companion object {
+        const val IS_NEW_USER = "is_new_user"
     }
 }

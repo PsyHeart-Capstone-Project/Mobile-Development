@@ -1,9 +1,8 @@
 package com.capstone.psyheart.api
 
 import com.capstone.psyheart.model.LoginResponse
-import com.capstone.psyheart.model.QuestionnairePostResponse
-import com.capstone.psyheart.model.QuestionnairePutResponse
 import com.capstone.psyheart.model.QuestionnaireResponse
+import com.capstone.psyheart.model.QuestionnaireSubmitResponse
 import com.capstone.psyheart.model.RegisterResponse
 import com.capstone.psyheart.model.SongCategoriesByIDResponse
 import com.capstone.psyheart.model.SongCategoriesResponse
@@ -13,7 +12,6 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
-import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {
@@ -41,13 +39,7 @@ interface ApiService {
     suspend fun questionnairePost(
         @Field("question_id") questionId: Int,
         @Field("answer") answer: String,
-    ): QuestionnairePostResponse
-
-    @PUT("questionnaire")
-    suspend fun questionnairePut(
-        @Field("question_id") questionId: Int,
-        @Field("answer") answer: String,
-    ): QuestionnairePutResponse
+    ): QuestionnaireSubmitResponse
 
     @GET("song_categories")
     suspend fun songCategories(

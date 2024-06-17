@@ -4,7 +4,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-data class QuestionnairePostResponse(
+data class QuestionnaireSubmitResponse(
     @field:SerializedName("status")
     val status: String,
 
@@ -12,11 +12,11 @@ data class QuestionnairePostResponse(
     val message: String,
 
     @field:SerializedName("data")
-    val data: DataResult
+    val data: QuestionnaireData
 )
 
 @Parcelize
-data class DataResult(
+data class QuestionnaireData(
     @field:SerializedName("mood")
-    val mood: String
+    val mood: String,
 ) : Parcelable

@@ -43,13 +43,13 @@ class ListSongAdapter(private val listStories: List<Songs>) : RecyclerView.Adapt
         holder.artist.text = song.artist
         holder.duration.text = song.duration
         holder.buttonPlay.setOnClickListener {
-            onItemClickCallback.onItemClicked(listStories[holder.adapterPosition])
+            onItemClickCallback.onItemClicked(listStories[holder.adapterPosition], position)
         }
     }
 
     override fun getItemCount(): Int = listStories.size
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: Songs)
+        fun onItemClicked(data: Songs, position: Int)
     }
 }

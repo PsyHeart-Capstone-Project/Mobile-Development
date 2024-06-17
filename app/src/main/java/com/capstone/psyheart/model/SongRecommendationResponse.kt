@@ -16,24 +16,27 @@ data class SongRecommendationResponse(
 )
 
 data class DataRecommendation(
+    @field:SerializedName("mood")
+    val mood: String,
+
     @field:SerializedName("recommendation")
-    val recommendation: List<Recommendation> = emptyList()
+    val recommendation: List<Songs> = emptyList()
 )
-
-@Parcelize
-data class Recommendation(
-    @field:SerializedName("id")
-    val id: Int,
-
-    @field:SerializedName("name")
-    val name: String,
-
-    @field:SerializedName("duration")
-    val duration: String,
-
-    @field:SerializedName("artist_name")
-    val artist: String,
-
-    @field:SerializedName("url")
-    val url: String
-) : Parcelable
+//
+//@Parcelize
+//data class Recommendation(
+//    @field:SerializedName("id")
+//    val id: Int,
+//
+//    @field:SerializedName("name")
+//    val name: String,
+//
+//    @field:SerializedName("duration")
+//    val duration: String,
+//
+//    @field:SerializedName("artist_name")
+//    val artist: String,
+//
+//    @field:SerializedName("url")
+//    val url: String
+//) : Parcelable
