@@ -87,7 +87,7 @@ class DiscoverDetailActivity : AppCompatActivity() {
         listSongAdapter.setOnItemClickCallback(object : ListSongAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Songs) {
                 val intent = Intent(context, HomeDetailActivity::class.java).apply {
-                    putExtra(DISCOVER_DETAIL_FRAGMENT, data)
+                    putExtra(MUSIC_PLAYER, data)
                 }
                 startActivity(intent)
             }
@@ -96,6 +96,6 @@ class DiscoverDetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val DISCOVER_DETAIL_FRAGMENT = "discover_detail_fragment"
+        const val MUSIC_PLAYER = "music_player"
     }
 }

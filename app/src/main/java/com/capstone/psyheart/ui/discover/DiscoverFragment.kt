@@ -94,6 +94,6 @@ class DiscoverFragment : Fragment() {
     }
 
     companion object {
-        const val DISCOVER_FRAGMENT = "discover_fragment"
+        const val DISCOVER_FRAGMENT = "music_player"
     }
 }
