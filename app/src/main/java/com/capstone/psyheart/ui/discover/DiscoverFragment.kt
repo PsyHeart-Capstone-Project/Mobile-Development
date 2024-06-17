@@ -14,7 +14,7 @@ import com.capstone.psyheart.adapter.ListSongCategoryAdapter
 import com.capstone.psyheart.databinding.FragmentDiscoverBinding
 import com.capstone.psyheart.model.CategoryItem
 import com.capstone.psyheart.ui.ViewModelFactory
-import com.capstone.psyheart.ui.home_detail.HomeDetailActivity
+import com.capstone.psyheart.ui.discover_detail.DiscoverDetailActivity
 import com.capstone.psyheart.utils.ResultData
 
 class DiscoverFragment : Fragment() {
@@ -79,18 +79,21 @@ class DiscoverFragment : Fragment() {
         listSongCategoryAdapter = ListSongCategoryAdapter(categories)
         listSongCategoryAdapter.setOnItemClickCallback(object : ListSongCategoryAdapter.OnItemClickCallback {
             override fun onItemClicked(data: CategoryItem) {
-                val intent = Intent(context, HomeDetailActivity::class.java)
+                val intent = Intent(context, DiscoverDetailActivity::class.java).apply {
+                    putExtra(DISCOVER_FRAGMENT, data.id)
+                }
                 startActivity(intent)
             }
         })
         discoverRv.adapter = listSongCategoryAdapter
-
-        // Log statements to verify adapter is set
-        Log.d("DiscoverFragment", "RecyclerView adapter is set with ${categories.size} categories")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        const val DISCOVER_FRAGMENT = "discover_fragment"
     }
 }

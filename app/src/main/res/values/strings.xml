@@ -27,8 +27,7 @@
     <string name="button_positive_emotion_reinforcement">Positive Emotion Reinforcement</string>
     <string name="button_submit">Submit</string>
     <string name="questionnaire_guide">Questionnaire Guide</string>
-    <string name="questionnaire_guide_text_1">
-       Please take a moment to answer <b>a few simple questions.</b>
+    <string name="questionnaire_guide_text_1">Please take a moment to answer <b>a few simple questions.</b>
         Your responses will help us better understand your specific needs and preferences,
         which is crucial for recommending the most suitable sound therapy treatment.
     </string>

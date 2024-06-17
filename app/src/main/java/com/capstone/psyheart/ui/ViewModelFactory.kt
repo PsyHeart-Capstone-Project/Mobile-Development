@@ -7,6 +7,7 @@ import com.capstone.psyheart.data.SongRepository
 import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.di.Injection
 import com.capstone.psyheart.ui.discover.DiscoverViewModel
+import com.capstone.psyheart.ui.discover_detail.DiscoverDetailViewModel
 import com.capstone.psyheart.ui.login.LoginViewModel
 import com.capstone.psyheart.ui.register.RegisterViewModel
 
@@ -30,6 +31,10 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(DiscoverViewModel::class.java) -> {
                 DiscoverViewModel(songRepository) as T
+            }
+
+            modelClass.isAssignableFrom(DiscoverDetailViewModel::class.java) -> {
+                DiscoverDetailViewModel(songRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

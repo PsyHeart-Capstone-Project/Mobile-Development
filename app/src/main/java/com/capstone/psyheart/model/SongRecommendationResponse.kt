@@ -1,11 +1,10 @@
 package com.capstone.psyheart.model
 
-
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
-data class SongCategoriesByIDResponse(
+data class SongRecommendationResponse(
     @field:SerializedName("status")
     val status: String,
 
@@ -13,42 +12,27 @@ data class SongCategoriesByIDResponse(
     val message: String,
 
     @field:SerializedName("data")
-    val data: DataByID
+    val data: DataRecommendation
 )
 
-data class DataByID(
-    @field:SerializedName("detail")
-    val detail: Detail,
-
-    @field:SerializedName("songs")
-    val songs: List<Songs> = emptyList()
+data class DataRecommendation(
+    @field:SerializedName("recommendation")
+    val recommendation: List<Recommendation> = emptyList()
 )
 
 @Parcelize
-data class Detail(
+data class Recommendation(
     @field:SerializedName("id")
     val id: Int,
 
     @field:SerializedName("name")
     val name: String,
-
-    @field:SerializedName("description")
-    val description: String
-) : Parcelable
-
-@Parcelize
-data class Songs(
-    @field:SerializedName("id")
-    val id: Int,
-
-    @field:SerializedName("name")
-    val name: String,
-
-    @field:SerializedName("artist_name")
-    val artist: String,
 
     @field:SerializedName("duration")
     val duration: String,
+
+    @field:SerializedName("artist_name")
+    val artist: String,
 
     @field:SerializedName("url")
     val url: String

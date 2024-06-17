@@ -15,10 +15,11 @@ import com.capstone.psyheart.model.RegisterResponse
 import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
 import com.capstone.psyheart.ui.ViewModelFactory
-import com.capstone.psyheart.ui.main.MainActivity
+import com.capstone.psyheart.ui.guide.GuideActivity
 import com.capstone.psyheart.utils.ResultData
 
 class RegisterActivity : AppCompatActivity() {
+
     private val viewModel: RegisterViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
@@ -55,34 +56,30 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         viewModel.registerResult.observe(this@RegisterActivity) { result ->
-            if (result != null) {
-                when (result) {
-                    is ResultData.Loading -> {
-                        showLoading(true)
-                    }
-
-                    is ResultData.Failure -> {
-                        showLoading(false)
-                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
-                    }
-
-                    is ResultData.Success -> {
-                        showLoading(false)
-                        Toast.makeText(
-                            this,
-                            "${getString(R.string.congrats)} ${result.data.message}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        saveLoginData(result.data)
-                        navigateToHome()
-                    }
+            when (result) {
+                is ResultData.Loading -> {
+                    showLoading(true)
+                }
+                is ResultData.Failure -> {
+                    showLoading(false)
+                    Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
+                }
+                is ResultData.Success -> {
+                    showLoading(false)
+                    Toast.makeText(
+                        this,
+                        "${getString(R.string.congrats)} ${result.data.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    saveLoginData(result.data)
+                    navigateToGuide() // Navigate to GuideActivity after successful registration
                 }
             }
         }
     }
 
-    private fun navigateToHome() {
-        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
+    private fun navigateToGuide() {
+        val intent = Intent(this@RegisterActivity, GuideActivity::class.java)
         startActivity(intent)
         finish()
     }

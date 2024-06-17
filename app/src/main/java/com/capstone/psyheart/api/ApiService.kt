@@ -7,12 +7,14 @@ import com.capstone.psyheart.model.QuestionnaireResponse
 import com.capstone.psyheart.model.RegisterResponse
 import com.capstone.psyheart.model.SongCategoriesByIDResponse
 import com.capstone.psyheart.model.SongCategoriesResponse
+import com.capstone.psyheart.model.SongRecommendationResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Path
 
 interface ApiService {
     @FormUrlEncoded
@@ -35,13 +37,13 @@ interface ApiService {
         @Header("Authorization") token: String?,
     ): QuestionnaireResponse
 
-    @POST("questionnairePost")
+    @POST("questionnaire")
     suspend fun questionnairePost(
         @Field("question_id") questionId: Int,
         @Field("answer") answer: String,
     ): QuestionnairePostResponse
 
-    @PUT("questionnairePut")
+    @PUT("questionnaire")
     suspend fun questionnairePut(
         @Field("question_id") questionId: Int,
         @Field("answer") answer: String,
@@ -52,9 +54,14 @@ interface ApiService {
         @Header("Authorization") token: String?,
     ): SongCategoriesResponse
 
-    @GET("song_categories_by_id")
+    @GET("song_categories/{id}")
     suspend fun songCategoriesByID(
         @Header("Authorization") token: String?,
+        @Path("id") id: Int
     ): SongCategoriesByIDResponse
 
+    @GET("song_recommendation")
+    suspend fun songRecommendation(
+        @Header("Authorization") token: String?,
+    ): SongRecommendationResponse
 }

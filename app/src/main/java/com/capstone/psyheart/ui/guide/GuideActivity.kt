@@ -20,9 +20,21 @@ class GuideActivity : AppCompatActivity() {
 
     private fun nextHandler() {
         binding.buttonNext.setOnClickListener {
-            val intent = Intent(this@GuideActivity, QuestionnaireActivity ::class.java)
-            startActivity(intent)
-            finish()
+            val isUpdateFlow = intent.getBooleanExtra(EXTRA_UPDATE_FLOW, false)
+
+            if (isUpdateFlow) {
+                val intent = Intent(this@GuideActivity, QuestionnaireActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                val intent = Intent(this@GuideActivity, QuestionnaireActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
+    }
+
+    companion object {
+        const val EXTRA_UPDATE_FLOW = "extra_update_flow"
     }
 }

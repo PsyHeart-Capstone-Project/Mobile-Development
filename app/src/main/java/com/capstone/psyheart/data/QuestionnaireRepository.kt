@@ -1,11 +1,10 @@
 package com.capstone.psyheart.data
 
 import com.capstone.psyheart.api.ApiService
-import com.capstone.psyheart.model.SongCategoriesByIDResponse
 import com.capstone.psyheart.model.SongCategoriesResponse
 import com.capstone.psyheart.preference.UserPreference
 
-class SongRepository private constructor(
+class QuestionnaireRepository private constructor(
     private val apiService: ApiService,
     private val userPreference: UserPreference
 ) {
@@ -13,20 +12,16 @@ class SongRepository private constructor(
         return apiService.songCategories("Bearer ${userPreference.getUser().token}")
     }
 
-    suspend fun getSongDetailCategories(id: Int): SongCategoriesByIDResponse {
-        return apiService.songCategoriesByID("Bearer ${userPreference.getUser().token}", id)
-    }
-
     companion object {
         @Volatile
-        private var instance: SongRepository? = null
+        private var instance: QuestionnaireRepository? = null
 
         fun getInstance(
             apiService: ApiService,
             userPreference: UserPreference
-        ): SongRepository =
+        ): QuestionnaireRepository =
             instance ?: synchronized(this) {
-                instance ?: SongRepository(apiService, userPreference)
+                instance ?: QuestionnaireRepository(apiService, userPreference)
             }.also { instance = it }
     }
 }
