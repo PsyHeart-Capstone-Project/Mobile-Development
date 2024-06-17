@@ -23,6 +23,7 @@ import com.capstone.psyheart.ui.discover_detail.DiscoverDetailViewModel
 import com.capstone.psyheart.ui.home.HomeFragment
 import com.capstone.psyheart.ui.home_detail.HomeDetailActivity
 import com.capstone.psyheart.ui.main.MainActivity
+import com.capstone.psyheart.ui.register.RegisterActivity
 import com.capstone.psyheart.ui.register.RegisterActivity.Companion.IS_NEW_USER
 import com.capstone.psyheart.utils.ResultData
 
@@ -42,7 +43,7 @@ class QuestionnaireActivity : AppCompatActivity() {
         adapter = QuestionnaireAdapter()
         binding.listQuestionnaire.adapter = adapter
 
-        val isNewUser = intent.getBooleanExtra(IS_NEW_USER, false)
+        val isNewUser = intent.getBooleanExtra(RegisterActivity.IS_NEW_USER, false)
 
         viewModel.getQuestionnaire()
 
@@ -91,6 +92,11 @@ class QuestionnaireActivity : AppCompatActivity() {
                     }
 
                     is ResultData.Failure -> {
+                        Toast.makeText(
+                            this,
+                            "Error",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         loadingHandler(false)
                     }
 

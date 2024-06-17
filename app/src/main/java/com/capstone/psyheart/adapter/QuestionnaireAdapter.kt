@@ -32,9 +32,9 @@ class QuestionnaireAdapter : RecyclerView.Adapter<QuestionnaireAdapter.QuestionV
     }
 
     fun getAnswers(): List<AnswerBody> {
-        return answers.map { AnswerBody(it.key, it.value) }
+        val sortedAnswers = answers.toList().sortedBy { it.first }
+        return sortedAnswers.map { AnswerBody(it.first, it.second) }
     }
-
     inner class QuestionViewHolder(private val binding: ItemQuestionnaireBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(question: Questions) {
             binding.listQuestionnaire.text = question.questionText

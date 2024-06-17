@@ -50,12 +50,10 @@ class DiscoverFragment : Fragment() {
 
                     is ResultData.Failure -> {
                         loadingHandler(false)
-                        Log.e("DiscoverFragment", "Error: ${result.error}")
                     }
 
                     is ResultData.Success -> {
                         loadingHandler(false)
-                        Log.d("DiscoverFragment", "Success: ${result.data.data.categories.size} categories fetched")
                         setupView(requireContext(), result.data.data.categories)
                     }
                 }
