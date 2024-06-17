@@ -22,12 +22,12 @@ data class DataQuestions(
 
 @Parcelize
 data class Questions(
-    @field:SerializedName("id")
+    @field:SerializedName("question_id")
     val questionId: Int,
 
     @field:SerializedName("question_text")
     val questionText: String,
 
     @field:SerializedName("options")
-    val options: String
+    val options: List<String>
 ) : Parcelable

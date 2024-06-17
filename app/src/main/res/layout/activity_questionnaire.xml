@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.guide.GuideActivity">
+    tools:context=".ui.questionnaire.QuestionnaireActivity">
 
     <TextView
         android:id="@+id/questionnaireTitle"
@@ -50,5 +50,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

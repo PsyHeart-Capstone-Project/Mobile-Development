@@ -10,6 +10,7 @@ import com.capstone.psyheart.ui.discover.DiscoverViewModel
 import com.capstone.psyheart.ui.discover_detail.DiscoverDetailViewModel
 import com.capstone.psyheart.ui.home.HomeViewModel
 import com.capstone.psyheart.ui.login.LoginViewModel
+import com.capstone.psyheart.ui.questionnaire.QuestionnaireViewModel
 import com.capstone.psyheart.ui.register.RegisterViewModel
 
 
@@ -40,6 +41,10 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(songRepository) as T
+            }
+
+            modelClass.isAssignableFrom(QuestionnaireViewModel::class.java) -> {
+                QuestionnaireViewModel(songRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

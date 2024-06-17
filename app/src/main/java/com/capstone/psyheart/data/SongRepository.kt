@@ -1,7 +1,10 @@
 package com.capstone.psyheart.data
 
 import com.capstone.psyheart.api.ApiService
+import com.capstone.psyheart.model.Answer
+import com.capstone.psyheart.model.AnswerBody
 import com.capstone.psyheart.model.QuestionnaireResponse
+import com.capstone.psyheart.model.QuestionnaireSubmitResponse
 import com.capstone.psyheart.model.SongCategoriesByIDResponse
 import com.capstone.psyheart.model.SongCategoriesResponse
 import com.capstone.psyheart.model.SongRecommendationResponse
@@ -25,6 +28,14 @@ class SongRepository private constructor(
 
     suspend fun getQuestionnaire(): QuestionnaireResponse {
         return apiService.questionnaire("Bearer ${userPreference.getUser().token}")
+    }
+
+    suspend fun postQuestionnaire(answers: List<AnswerBody>): QuestionnaireSubmitResponse {
+        return apiService.questionnairePost("Bearer ${userPreference.getUser().token}", Answer(answers))
+    }
+
+    suspend fun putQuestionnaire(answers: List<AnswerBody>): QuestionnaireSubmitResponse {
+        return apiService.questionnairePut("Bearer ${userPreference.getUser().token}", Answer(answers))
     }
 
     companion object {
