@@ -12,8 +12,18 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 
 ## Screenshots
 
-![Login](/app/src/main/res/app-screenshot/login.jpg)
-![Register](/app/src/main/res/app-screenshot/register.jpg)
+### Authentication
+<img src="app/src/main/res/app-screenshot/login.jpg" width="200">
+<img src="app/src/main/res/app-screenshot/register.jpg" width="200">
+
+### Menus
+<img src="app/src/main/res/app-screenshot/home.jpg" width="200">
+<img src="app/src/main/res/app-screenshot/discover.jpg" width="200">
+<img src="app/src/main/res/app-screenshot/profile.jpg" width="200">
+
+### Questionnaire
+<img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="200">
+<img src="app/src/main/res/app-screenshot/guide.jpg" width="200">
 
 ## Installation
 
