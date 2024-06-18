@@ -13,17 +13,29 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 ## Screenshots
 
 ### Authentication
-<img src="app/src/main/res/app-screenshot/login.jpg" width="200">
-<img src="app/src/main/res/app-screenshot/register.jpg" width="200">
+<table>
+  <tr>
+    <td align="center"><img src="app/src/main/res/app-screenshot/login.jpg" width="200"></td>
+    <td align="center"><img src="app/src/main/res/app-screenshot/register.jpg" width="200"></td>
+  </tr>
+</table>
 
 ### Menus
-<img src="app/src/main/res/app-screenshot/home.jpg" width="200">
-<img src="app/src/main/res/app-screenshot/discover.jpg" width="200">
-<img src="app/src/main/res/app-screenshot/profile.jpg" width="200">
+<table>
+  <tr>
+    <td align="center"><img src="app/src/main/res/app-screenshot/home.jpg" width="200"></td>
+    <td align="center"><img src="app/src/main/res/app-screenshot/discover.jpg" width="200"></td>
+    <td align="center"><img src="app/src/main/res/app-screenshot/profile.jpg" width="200"></td>
+  </tr>
+</table>
 
 ### Questionnaire
-<img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="200">
-<img src="app/src/main/res/app-screenshot/guide.jpg" width="200">
+<table>
+  <tr>
+    <td align="center"><img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="200"></td>
+    <td align="center"><img src="app/src/main/res/app-screenshot/guide.jpg" width="200"></td>
+  </tr>
+</table>
 
 ## Installation
 
