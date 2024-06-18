@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:gravity="center"
         android:fontFamily="@font/poppins_bold"
-        android:text=""
+        android:text="@string/profile_title"
         android:textAlignment="center"
         android:textSize="32sp"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,26 +32,57 @@
         android:text=""
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileTitleText"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/profileTitleText" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/spinner_border"
+        android:drawableEnd="@drawable/ic_back"
+        android:drawablePadding="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/descProfileText" />
+
+    <Spinner
+        android:id="@+id/themespinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/spinner_border"
+        android:drawableEnd="@drawable/ic_back"
+        android:drawablePadding="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/editAccountLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         app:cardCornerRadius="4dp"
         app:cardElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/themeDropDown">
+        app:layout_constraintTop_toBottomOf="@id/themespinner">
 
         <TextView
             android:id="@+id/edit_acc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/poppins_regular"
@@ -64,69 +95,12 @@
             android:textSize="16sp" />
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/languageDropDown"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/language"
-        app:endIconDrawable="@drawable/ic_next"
-        app:endIconMode="custom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/descProfileText">
-
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center_vertical"
-            android:inputType="none"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingVertical="16dp"
-            android:textSize="16sp"
-            tools:ignore="LabelFor" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/themeDropDown"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/theme"
-        app:endIconDrawable="@drawable/ic_next"
-        app:endIconMode="custom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/languageDropDown">
-
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center_vertical"
-            android:inputType="none"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingVertical="16dp"
-            android:textSize="16sp"
-            tools:ignore="LabelFor" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/logoutLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         app:cardCornerRadius="4dp"
         app:cardElevation="2dp"

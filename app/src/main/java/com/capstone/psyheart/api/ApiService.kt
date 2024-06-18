@@ -3,6 +3,8 @@ package com.capstone.psyheart.api
 import com.capstone.psyheart.model.Answer
 import com.capstone.psyheart.model.AnswerBody
 import com.capstone.psyheart.model.LoginResponse
+import com.capstone.psyheart.model.LogoutResponse
+import com.capstone.psyheart.model.ProfileResponse
 import com.capstone.psyheart.model.QuestionnaireResponse
 import com.capstone.psyheart.model.QuestionnaireSubmitResponse
 import com.capstone.psyheart.model.RegisterResponse
@@ -66,4 +68,18 @@ interface ApiService {
     suspend fun songRecommendation(
         @Header("Authorization") token: String?,
     ): SongRecommendationResponse
+
+    @POST("logout")
+    suspend fun logout(
+        @Header("Authorization") token: String?
+    ): LogoutResponse
+
+    @FormUrlEncoded
+    @PUT("profiles")
+    suspend fun editprofile(
+        @Field("name") name: String,
+        @Field("email") email: String,
+        @Field("new_password") password: String,
+        @Header("Authorization") token: String?
+    ): ProfileResponse
 }

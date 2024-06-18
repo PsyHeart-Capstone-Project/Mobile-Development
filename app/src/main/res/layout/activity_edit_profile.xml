@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".ui.profile.EditProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="18dp"
         android:layout_marginBottom="16dp">
 
         <ImageButton
@@ -43,7 +42,6 @@
                 android:text="@string/title_personal_data"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
         <TextView
@@ -55,17 +53,15 @@
             android:text="@string/edit_profile_title_msg"
             android:textColor="@android:color/holo_blue_dark"
             android:gravity="center"
+            android:layout_marginEnd="20dp"
             android:textStyle="bold"
             android:clickable="true"
             android:focusable="true" />
-
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
         android:orientation="vertical"
         android:layout_marginVertical="8dp">
 
@@ -73,23 +69,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit_profile_full_name"
+            android:layout_marginStart="10dp"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etFullName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="@string/edit_profile_full_name"
-            android:inputType="textPersonName" />
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:startIconDrawable="@drawable/ic_person"
+            app:startIconTint="?attr/colorOnSurface"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingTop="16dp"
+                android:textColor="?attr/colorOnSurface" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
         android:orientation="vertical"
         android:layout_marginVertical="8dp">
 
@@ -97,23 +105,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
+            android:layout_marginStart="10dp"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etEmail"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress" />
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="?attr/colorSurface"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="?attr/colorOnSurface"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
+            <com.capstone.psyheart.custom_view.CustomEmailText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textColor="?attr/colorOnSurface"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
         android:orientation="vertical"
         android:layout_marginVertical="8dp">
 
@@ -121,6 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edit_profile_new_pwd"
+            android:layout_marginStart="10dp"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -128,12 +149,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/etPassword"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordEditTextLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/edit_profile_new_pwd"
-                android:inputType="textPassword" />
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="?attr/colorSurface"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconTint="?attr/colorOnSurface"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <com.capstone.psyheart.custom_view.CustomPasswordText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
                 android:id="@+id/ic_visible"
@@ -144,17 +179,14 @@
                 android:background="@null"
                 android:contentDescription="@string/title_ic_visible"
                 android:src="@drawable/ic_visible"
-                app:tint="?attr/colorOnSurface" />
-
+                app:tint="?attr/colorOnSurface"
+                android:layout_marginEnd="10dp" />
         </RelativeLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="18dp"
         android:orientation="vertical"
         android:layout_marginVertical="8dp">
 
@@ -163,18 +195,33 @@
             android:layout_height="wrap_content"
             android:text="@string/edit_profile_confirm_pwd"
             android:textSize="16sp"
+            android:layout_marginStart="10dp"
             android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/etConfirmPassword"
-                android:layout_width="372dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/confirmPasswordEditTextLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/edit_profile_confirm_pwd"
-                android:inputType="textPassword" />
+                app:boxBackgroundColor="?attr/colorSurface"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:startIconTint="?attr/colorOnSurface"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <com.capstone.psyheart.custom_view.CustomPasswordText
+                    android:id="@+id/etConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
                 android:id="@+id/ic_visible_confirm"
@@ -185,10 +232,8 @@
                 android:background="@null"
                 android:contentDescription="@string/title_ic_visible"
                 android:src="@drawable/ic_visible"
-                app:tint="?attr/colorOnSurface" />
-
+                app:tint="?attr/colorOnSurface"
+                android:layout_marginEnd="10dp" />
         </RelativeLayout>
-
     </LinearLayout>
-
 </LinearLayout>

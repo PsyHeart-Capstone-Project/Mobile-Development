@@ -2,6 +2,7 @@ package com.capstone.psyheart.data
 
 import com.capstone.psyheart.api.ApiService
 import com.capstone.psyheart.model.LoginResponse
+import com.capstone.psyheart.model.ProfileResponse
 import com.capstone.psyheart.model.RegisterResponse
 import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
@@ -19,8 +20,13 @@ class UserRepository private constructor(
         return userPreference.getUser()
     }
 
-    suspend fun logout() {
+    suspend fun logout(token: String) {
+        apiService.logout("Bearer $token")
         userPreference.logout()
+    }
+
+    suspend fun updateProfile(name: String, email: String, password: String): ProfileResponse {
+        return apiService.editprofile(name, email, password, "Bearer ${userPreference.getUser().token}")
     }
 
     suspend fun register(name: String, email: String, password: String): RegisterResponse {

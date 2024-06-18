@@ -93,7 +93,8 @@ class RegisterActivity : AppCompatActivity() {
             UserModel(
                 name = binding.registerName.text.toString(),
                 userId = result.userId,
-                token = result.token
+                token = result.token,
+                email = binding.registerEmail.text.toString()
             )
         )
     }

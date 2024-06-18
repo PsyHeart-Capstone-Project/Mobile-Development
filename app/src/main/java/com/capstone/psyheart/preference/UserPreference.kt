@@ -16,7 +16,15 @@ class UserPreference(context: Context) {
             putString(USER_EMAIL, value.email) // Menyimpan email user
             apply()
         }
-        Log.d("UserPreference", "Email disimpan: ${value.email}") // Tambahkan log ini
+    }
+
+    fun updateUser(value: UserModel) {
+        val editor = prefs.edit()
+        editor.apply {
+            putString(USER_NAME, value.name)
+            putString(USER_EMAIL, value.email) // Menyimpan email user
+            apply()
+        }
     }
 
     fun getUser(): UserModel {
@@ -24,7 +32,6 @@ class UserPreference(context: Context) {
         val userId = prefs.getString(USER_ID, null)
         val token = prefs.getString(USER_TOKEN, null)
         val email = prefs.getString(USER_EMAIL, null) // Mengambil email user
-        Log.d("UserPreference", "Email diambil: $email") // Tambahkan log ini
         return UserModel(userId, name, token, email)
     }
 
