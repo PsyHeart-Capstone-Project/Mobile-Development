@@ -15,7 +15,7 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 ### Authentication
 <div style="display: flex; justify-content: center;">
     <img src="app/src/main/res/app-screenshot/login.jpg" width="144" style="margin-right: 10px;">
-    <img src="app/src/main/res/app-screenshot/register.jpg" width="144" style="margin-left: 10px;">
+    <img src="app/src/main/res/app-screenshot/signup.jpg" width="144" style="margin-left: 10px;">
 </div>
 
 ### Menus
@@ -27,8 +27,8 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 
 ### Questionnaire
 <div style="display: flex; justify-content: center;">
-    <img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="144" style="margin-right: 10px;">
     <img src="app/src/main/res/app-screenshot/guide.jpg" width="144" style="margin-left: 10px;">
+    <img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="144" style="margin-right: 10px;">
 </div>
 
 
