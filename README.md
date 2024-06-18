@@ -10,6 +10,11 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 - **Music Library**: A curated library of therapeutic music tracks.
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation.
 
+## Screenshots
+
+![Login](/app/src/main/res/app-screenshot/login.jpg)
+![Register](/app/src/main/res/app-screenshot/register.jpg)
+
 ## Installation
 
 To run this project locally, follow these steps:
