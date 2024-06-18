@@ -38,7 +38,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun splashScreenHandler() {
-        if (!userModel.token.isNullOrEmpty()) {
+        if (userModel.token != "null") {
             val intent = Intent(this, MainActivity::class.java)
             navigate(intent)
         }

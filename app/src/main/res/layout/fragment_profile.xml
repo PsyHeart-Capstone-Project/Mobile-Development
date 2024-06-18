@@ -51,7 +51,7 @@
         <TextView
             android:id="@+id/edit_acc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="true"
             android:fontFamily="@font/poppins_regular"
@@ -79,20 +79,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/descProfileText">
 
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center_vertical"
-            android:inputType="none"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingVertical="16dp"
-            android:textSize="16sp"
-            tools:ignore="LabelFor" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_weight="1"
+        android:background="@drawable/spinner_border"
+        android:drawableEnd="@drawable/ic_back"
+        android:drawablePadding="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descProfileText" />
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/themeDropDown"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -107,19 +112,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/languageDropDown">
 
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center_vertical"
-            android:inputType="none"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingVertical="16dp"
-            android:textSize="16sp"
-            tools:ignore="LabelFor" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/themespinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_weight="1"
+        android:background="@drawable/spinner_border"
+        android:drawableEnd="@drawable/ic_back"
+        android:drawablePadding="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/languageDropDown" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/logoutLayout"

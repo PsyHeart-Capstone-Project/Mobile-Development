@@ -2,6 +2,7 @@ package com.capstone.psyheart.preference
 
 import android.content.Context
 import android.util.Log
+import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.model.UserModel
 
 class UserPreference(context: Context) {
@@ -10,22 +11,19 @@ class UserPreference(context: Context) {
     fun setUser(value: UserModel) {
         val editor = prefs.edit()
         editor.apply {
-            putString(USER_NAME, value.name)
-            putString(USER_ID, value.userId)
+
             putString(USER_TOKEN, value.token)
-            putString(USER_EMAIL, value.email) // Menyimpan email user
             apply()
         }
-        Log.d("UserPreference", "Email disimpan: ${value.email}") // Tambahkan log ini
+
     }
 
     fun getUser(): UserModel {
-        val name = prefs.getString(USER_NAME, null)
-        val userId = prefs.getString(USER_ID, null)
-        val token = prefs.getString(USER_TOKEN, null)
+        0
+        val token = prefs.getString(USER_TOKEN, "null")
         val email = prefs.getString(USER_EMAIL, null) // Mengambil email user
         Log.d("UserPreference", "Email diambil: $email") // Tambahkan log ini
-        return UserModel(userId, name, token, email)
+        return UserModel(token.toString())
     }
 
     fun logout() {

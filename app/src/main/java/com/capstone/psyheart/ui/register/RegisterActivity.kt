@@ -1,6 +1,8 @@
 package com.capstone.psyheart.ui.register
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -15,11 +17,10 @@ import com.capstone.psyheart.model.RegisterResponse
 import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
 import com.capstone.psyheart.ui.ViewModelFactory
-import com.capstone.psyheart.ui.guide.GuideActivity
+import com.capstone.psyheart.ui.main.MainActivity
 import com.capstone.psyheart.utils.ResultData
 
 class RegisterActivity : AppCompatActivity() {
-
     private val viewModel: RegisterViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
@@ -51,37 +52,48 @@ class RegisterActivity : AppCompatActivity() {
             val name = binding.registerName.text.toString()
             val email = binding.registerEmail.text.toString()
             val password = binding.registerPassword.text.toString()
+            val sharedPreference = this@RegisterActivity.getSharedPreferences("user", Context.MODE_PRIVATE)
+            var editor = sharedPreference.edit()
+
+            editor.putString("email",email)
+            editor.commit()
 
             viewModel.register(name, email, password)
         }
 
         viewModel.registerResult.observe(this@RegisterActivity) { result ->
-            when (result) {
-                is ResultData.Loading -> {
-                    showLoading(true)
-                }
-                is ResultData.Failure -> {
-                    showLoading(false)
-                    Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
-                }
-                is ResultData.Success -> {
-                    showLoading(false)
-                    Toast.makeText(
-                        this,
-                        "${getString(R.string.congrats)} ${result.data.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    saveLoginData(result.data)
-                    navigateToGuide() // Navigate to GuideActivity after successful registration
+            if (result != null) {
+                when (result) {
+                    is ResultData.Loading -> {
+                        showLoading(true)
+                    }
+
+                    is ResultData.Failure -> {
+                        showLoading(false)
+                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
+                    }
+
+                    is ResultData.Success -> {
+                        showLoading(false)
+                        Toast.makeText(
+                            this,
+                            "${getString(R.string.congrats)} ${result.data.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        saveLoginData(result.data)
+                        val sharedPreference = this@RegisterActivity.getSharedPreferences("user", Context.MODE_PRIVATE)
+                        var editor = sharedPreference.edit()
+                        editor.putString("token","Bearer "+result.data.data.token)
+                        editor.commit()
+                        navigateToHome()
+                    }
                 }
             }
         }
     }
 
-    private fun navigateToGuide() {
-        val intent = Intent(this@RegisterActivity, GuideActivity::class.java).apply {
-            putExtra(IS_NEW_USER, true)
-        }
+    private fun navigateToHome() {
+        val intent = Intent(this@RegisterActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
@@ -91,8 +103,7 @@ class RegisterActivity : AppCompatActivity() {
         val result = registerResponse.data
         userPreference.setUser(
             UserModel(
-                name = binding.registerName.text.toString(),
-                userId = result.userId,
+
                 token = result.token
             )
         )
@@ -100,9 +111,5 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
-    companion object {
-        const val IS_NEW_USER = "is_new_user"
     }
 }

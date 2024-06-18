@@ -1,6 +1,8 @@
 package com.capstone.psyheart.ui.login
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -58,6 +60,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handlingLogin(email: String, password: String) {
         viewModel.login(email, password)
+        //save email to shared preference
+        val sharedPreference = this@LoginActivity.getSharedPreferences("user", Context.MODE_PRIVATE)
+        var editor = sharedPreference.edit()
+        editor.putString("email",email)
+        editor.commit()
+
 
         viewModel.resultLogin.observe(this@LoginActivity) { result ->
             if (result != null) {
@@ -73,6 +81,10 @@ class LoginActivity : AppCompatActivity() {
 
                     is ResultData.Success -> {
                         saveLoginData(result.data, email)
+                        val sharedPreference = this@LoginActivity.getSharedPreferences("user", Context.MODE_PRIVATE)
+                        var editor = sharedPreference.edit()
+                        editor.putString("token","Bearer "+result.data.data.token)
+                        editor.commit()
                         navigateToHome()
                     }
                 }
@@ -92,11 +104,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun saveLoginData(loginResponse: LoginResponse, email: String) {
         val userPreference = UserPreference(this)
-        val result = loginResponse.loginResult
+        val result = loginResponse.data
         Log.d("LoginActivity", "Saving email: $email") // Tambahkan log ini
         userPreference.setUser(
             UserModel(
-                name = result.name, userId = result.userId, token = result.token, email = email
+                token = result.token
             )
         )
     }

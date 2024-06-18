@@ -1,5 +1,6 @@
 package com.capstone.psyheart.ui
 
+import EditProfileViewModel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,10 +8,8 @@ import com.capstone.psyheart.data.SongRepository
 import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.di.Injection
 import com.capstone.psyheart.ui.discover.DiscoverViewModel
-import com.capstone.psyheart.ui.discover_detail.DiscoverDetailViewModel
-import com.capstone.psyheart.ui.home.HomeViewModel
 import com.capstone.psyheart.ui.login.LoginViewModel
-import com.capstone.psyheart.ui.questionnaire.QuestionnaireViewModel
+import com.capstone.psyheart.ui.profile.ProfileViewModel
 import com.capstone.psyheart.ui.register.RegisterViewModel
 
 
@@ -30,21 +29,15 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(userRepository) as T
             }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(userRepository) as T
+            }
+            modelClass.isAssignableFrom(EditProfileViewModel::class.java) -> {
+                EditProfileViewModel(userRepository) as T
+            }
 
             modelClass.isAssignableFrom(DiscoverViewModel::class.java) -> {
                 DiscoverViewModel(songRepository) as T
-            }
-
-            modelClass.isAssignableFrom(DiscoverDetailViewModel::class.java) -> {
-                DiscoverDetailViewModel(songRepository) as T
-            }
-
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(songRepository) as T
-            }
-
-            modelClass.isAssignableFrom(QuestionnaireViewModel::class.java) -> {
-                QuestionnaireViewModel(songRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

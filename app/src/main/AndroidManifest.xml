@@ -34,9 +34,6 @@
             android:name=".ui.guide.GuideActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.questionnaire.QuestionnaireActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.profile.EditProfileActivity"
             android:exported="true" />
         <activity

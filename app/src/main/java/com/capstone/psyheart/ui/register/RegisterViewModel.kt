@@ -1,5 +1,7 @@
 package com.capstone.psyheart.ui.register
 
+import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,6 +25,8 @@ class RegisterViewModel(private val repository: UserRepository) : ViewModel() {
                 _registerResult.value = ResultData.Loading
                 try {
                     val response = repository.register(name, email, password)
+                    // Menyimpan data user ke dalam shared preference
+
                     _registerResult.postValue(ResultData.Success(response))
                 } catch (e: HttpException) {
                     val jsonInString = e.response()?.errorBody()?.string()

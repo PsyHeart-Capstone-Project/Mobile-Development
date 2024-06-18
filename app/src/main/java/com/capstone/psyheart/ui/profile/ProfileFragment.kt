@@ -8,11 +8,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.capstone.psyheart.R
+import com.capstone.psyheart.api.ApiService
+import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.databinding.FragmentProfileBinding
 import com.capstone.psyheart.preference.UserPreference
+import com.capstone.psyheart.ui.ViewModelFactory
+import com.capstone.psyheart.ui.login.LoginViewModel
 import com.capstone.psyheart.ui.logout.LogoutActivity
 import java.util.Locale
 
@@ -21,13 +31,16 @@ class ProfileFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var userPreference: UserPreference // Deklarasi variabel untuk UserPreference
-
+    //viewmodel
+    private val viewModel by viewModels<ProfileViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
     companion object {
         const val LIGHT_THEME = 0
         const val DARK_THEME = 1
     }
 
-    private var selectedLanguage = "in" // Inisialisasi dengan bahasa Indonesia sebagai default
+    private var selectedLanguage = "en" // Inisialisasi dengan bahasa Indonesia sebagai default
     private var selectedTheme = LIGHT_THEME
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,16 +64,20 @@ class ProfileFragment : Fragment() {
         updateAppLanguage()
         updateAppTheme()
         setupViews()
+        showLanguageSelectionDialog()
+        showThemeSelectionDialog()
 
         // Dapatkan data pengguna dari UserPreference
         val userModel = userPreference.getUser()
 
-        // Debugging Log
-        Log.d("ProfileFragment", "User Email: ${userModel.email}")
 
         // Atur teks pada profileTitleText dan descProfileText berdasarkan data pengguna
-        binding.profileTitleText.text = userModel.name
-        binding.descProfileText.text = userModel.email // Tampilkan email user
+        binding.profileTitleText.text = "PsyHeart"
+        //get from shared preference
+
+        val sharedPreferences2 = requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
+        binding.descProfileText.text =  sharedPreferences2.getString("email", "defaultEmail")
+
     }
 
     private fun setupViews() {
@@ -70,59 +87,67 @@ class ProfileFragment : Fragment() {
         }
 
         binding.logoutTextView.setOnClickListener {
+            userPreference.logout()
+            val sharedPreference = requireActivity().getSharedPreferences("user", Context.MODE_PRIVATE)
+
+            viewModel.logout(sharedPreference.getString("token", "asdasd")!!)
+
             val intent = Intent(requireContext(), LogoutActivity::class.java)
             startActivity(intent)
         }
 
-        binding.languageDropDown.setEndIconOnClickListener {
-            showLanguageSelectionDialog()
-        }
 
-        binding.themeDropDown.setEndIconOnClickListener {
-            showThemeSelectionDialog()
-        }
     }
 
     private fun showLanguageSelectionDialog() {
-        val languages = arrayOf("Indonesian", "English")
-        val checkedItem = if (selectedLanguage == "in") 0 else 1
-
-        AlertDialog.Builder(requireContext())
-            .setTitle("Select Language")
-            .setSingleChoiceItems(languages, checkedItem) { dialog, which ->
-                val newLanguage = if (which == 0) "in" else "en"
+        val languages = arrayOf("English","Indonesian")
+        val checkedItem = if (selectedLanguage == "in") 1 else 0
+        val spinner = binding.spinner
+        val arrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, languages)
+        spinner.adapter = arrayAdapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val newLanguage = if (position == 0) "en" else "in"
                 if (selectedLanguage != newLanguage) {
                     selectedLanguage = newLanguage
                     saveSelectedLanguage()
                     updateAppLanguage()
                     requireActivity().recreate() // Restart the activity to apply language changes
                 }
-                dialog.dismiss()
             }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do nothing
             }
-            .show()
+        }
+
+
     }
 
     private fun showThemeSelectionDialog() {
         val themes = arrayOf("Light Theme", "Dark Theme")
         val checkedItem = selectedTheme
+        val spinner = binding.themespinner
+        val arrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, themes)
+        spinner.adapter = arrayAdapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val newTheme = if (position == 0) LIGHT_THEME else DARK_THEME
+                if (selectedTheme != newTheme) {
+                    selectedTheme = newTheme
+                    saveSelectedTheme()
+                    updateAppTheme()
+                    requireActivity().recreate() // Restart the activity to apply theme changes
+                }
+            }
 
-        AlertDialog.Builder(requireContext())
-            .setTitle("Select Theme")
-            .setSingleChoiceItems(themes, checkedItem) { dialog, which ->
-                selectedTheme = which
-                saveSelectedTheme()
-                updateAppTheme()
-                requireActivity().recreate() // Restart the activity to apply theme changes
-                dialog.dismiss()
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Do nothing
             }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
+        }
+
     }
+
 
     private fun updateAppLanguage() {
         val locale = if (selectedLanguage == "in") Locale("id") else Locale.ENGLISH

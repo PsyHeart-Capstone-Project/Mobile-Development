@@ -2,6 +2,7 @@ package com.capstone.psyheart.data
 
 import com.capstone.psyheart.api.ApiService
 import com.capstone.psyheart.model.LoginResponse
+import com.capstone.psyheart.model.ProfileResponse
 import com.capstone.psyheart.model.RegisterResponse
 import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
@@ -19,8 +20,8 @@ class UserRepository private constructor(
         return userPreference.getUser()
     }
 
-    suspend fun logout() {
-        userPreference.logout()
+    suspend fun logout(token:String) {
+        apiService.logout(token)
     }
 
     suspend fun register(name: String, email: String, password: String): RegisterResponse {
@@ -30,15 +31,15 @@ class UserRepository private constructor(
     suspend fun login(email: String, password: String): LoginResponse {
         val response = apiService.login(email, password)
         val user = UserModel(
-            name = response.loginResult.name,
-            userId = response.loginResult.userId,
-            token = response.loginResult.token,
-            email = email // Menyimpan email user yang digunakan untuk login
+
+            token = response.data.token,
         )
         saveSession(user)
         return response
     }
-
+    suspend fun updateProfile(name: String, email: String, password: String,token: String): ProfileResponse {
+        return apiService.editprofile(name, email, password, "$token")
+    }
     companion object {
         @Volatile
         private var instance: UserRepository? = null
