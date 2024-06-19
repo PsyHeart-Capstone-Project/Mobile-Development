@@ -6,7 +6,6 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -100,7 +99,8 @@ class HomeDetailActivity : AppCompatActivity() {
 
     private fun setupMediaPlayer() {
         mediaPlayer = MediaPlayer() // Initialize MediaPlayer here
-        songs = intent.getParcelableArrayListExtra<Songs>(DiscoverDetailActivity.MUSIC_PLAYER) ?: return
+        songs =
+            intent.getParcelableArrayListExtra<Songs>(DiscoverDetailActivity.MUSIC_PLAYER) ?: return
         currentSongIndex = intent.getIntExtra("CURRENT_SONG_INDEX", 0)
         playSong(currentSongIndex)
 
@@ -165,42 +165,19 @@ class HomeDetailActivity : AppCompatActivity() {
         handler.removeCallbacks(updateSeekBarRunnable)
     }
 
-//    private fun startImageRotation() {
-//        imageView.animate().rotationBy(360f).setDuration(10000).setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
-//            override fun onAnimationEnd(animation: Animator) {
-//                if (isMediaPlayerInitialized && mediaPlayer.isPlaying) {
-//                    startImageRotation()
-//                }
-//            }
-//        }).start()
-//    }
-
-//    private fun startImageRotation() {
-//        imageView.animate().rotationBy(360f).setDuration(10000).setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
-//            override fun onAnimationEnd(animation: Animator) {
-//                if (isMediaPlayerInitialized && mediaPlayer.isPlaying) {
-//                    startImageRotation()
-//                }
-//            }
-//
-//            override fun onAnimationCancel(animation: Animator) {
-//                imageView.animate().setListener(null) // Clean up listener on animation cancel
-//            }
-//        }).start()
-//    }
-
     private fun startImageRotation() {
-        imageView.animate().rotationBy(360f).setDuration(10000).setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                if (isMediaPlayerPlaying()) {
-                    startImageRotation()
+        imageView.animate().rotationBy(360f).setDuration(10000)
+            .setInterpolator(LinearInterpolator()).setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    if (isMediaPlayerPlaying()) {
+                        startImageRotation()
+                    }
                 }
-            }
 
-            override fun onAnimationCancel(animation: Animator) {
-                imageView.animate().setListener(null) // Clean up listener on animation cancel
-            }
-        }).start()
+                override fun onAnimationCancel(animation: Animator) {
+                    imageView.animate().setListener(null) // Clean up listener on animation cancel
+                }
+            }).start()
     }
 
 

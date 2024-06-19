@@ -16,7 +16,6 @@ class CustomEmailText : TextInputEditText {
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
-
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
         context,
         attrs,

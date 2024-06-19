@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capstone.psyheart.data.SongRepository
 import com.capstone.psyheart.model.ErrorResponse
-import com.capstone.psyheart.model.SongCategoriesByIDResponse
 import com.capstone.psyheart.model.SongRecommendationResponse
 import com.capstone.psyheart.utils.ResultData
 import com.google.gson.Gson

@@ -3,7 +3,6 @@ package com.capstone.psyheart.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -93,7 +92,6 @@ class LoginActivity : AppCompatActivity() {
     private fun saveLoginData(loginResponse: LoginResponse, email: String) {
         val userPreference = UserPreference(this)
         val result = loginResponse.loginResult
-        Log.d("LoginActivity", "Saving email: $email") // Tambahkan log ini
         userPreference.setUser(
             UserModel(
                 name = result.name, userId = result.userId, token = result.token, email = email

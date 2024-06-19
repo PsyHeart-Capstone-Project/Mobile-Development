@@ -1,12 +1,9 @@
 package com.capstone.psyheart.ui.profile
 
 import EditProfileViewModel
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -16,12 +13,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.capstone.psyheart.R
 import com.capstone.psyheart.databinding.ActivityEditProfileBinding
-import com.capstone.psyheart.model.LoginResponse
 import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
 import com.capstone.psyheart.ui.ViewModelFactory
-import com.capstone.psyheart.ui.login.LoginActivity
-import com.capstone.psyheart.ui.login.LoginViewModel
 import com.capstone.psyheart.utils.ResultData
 import kotlinx.coroutines.launch
 
@@ -71,9 +65,17 @@ class EditProfileActivity : AppCompatActivity() {
             val confirmPassword = binding.etConfirmPassword.text.toString()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                Toast.makeText(this@EditProfileActivity, "Please fill the required field", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@EditProfileActivity,
+                    "Please fill the required field",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else if (password != confirmPassword) {
-                Toast.makeText(this@EditProfileActivity, "Password confirmation doesn't match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@EditProfileActivity,
+                    "Password confirmation doesn't match",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 lifecycleScope.launch {
                     viewModel.updateProfile(name, email, password)
@@ -85,17 +87,20 @@ class EditProfileActivity : AppCompatActivity() {
             if (result != null) {
                 when (result) {
                     is ResultData.Loading -> {
-//                        loadingHandler(true)
                     }
 
                     is ResultData.Failure -> {
-//                        loadingHandler(false)
-                        Toast.makeText(this@EditProfileActivity, result.error, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@EditProfileActivity, result.error, Toast.LENGTH_SHORT)
+                            .show()
                     }
 
                     is ResultData.Success -> {
                         saveLoginData(result.data.data.name, result.data.data.email)
-                        Toast.makeText(this@EditProfileActivity, "Profile updated successfully", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@EditProfileActivity,
+                            "Profile updated successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         finish()
                     }
                 }
@@ -123,12 +128,15 @@ class EditProfileActivity : AppCompatActivity() {
         isPasswordVisible = !isPasswordVisible
         binding.etPassword.setSelection(binding.etPassword.text!!.length) // Move cursor to the end
     }
+
     private fun togglePasswordConfirmVisibility() {
         if (isPasswordVisibleconfirm) {
-            binding.etConfirmPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+            binding.etConfirmPassword.transformationMethod =
+                PasswordTransformationMethod.getInstance()
             binding.icVisibleConfirm.setImageResource(com.chuckerteam.chucker.R.drawable.design_ic_visibility_off)
         } else {
-            binding.etConfirmPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            binding.etConfirmPassword.transformationMethod =
+                HideReturnsTransformationMethod.getInstance()
             binding.icVisibleConfirm.setImageResource(R.drawable.ic_visible)
         }
         isPasswordVisibleconfirm = !isPasswordVisibleconfirm

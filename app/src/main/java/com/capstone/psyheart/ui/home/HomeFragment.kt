@@ -81,7 +81,10 @@ class HomeFragment : Fragment() {
         listSongAdapter.setOnItemClickCallback(object : ListSongAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Songs, position: Int) {
                 val intent = Intent(context, HomeDetailActivity::class.java).apply {
-                    putParcelableArrayListExtra(DiscoverDetailActivity.MUSIC_PLAYER, ArrayList(songs))
+                    putParcelableArrayListExtra(
+                        DiscoverDetailActivity.MUSIC_PLAYER,
+                        ArrayList(songs)
+                    )
                     putExtra("CURRENT_SONG_INDEX", position)
                 }
                 context.startActivity(intent)

@@ -3,25 +3,17 @@ package com.capstone.psyheart.ui.discover_detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.psyheart.adapter.ListSongAdapter
-import com.capstone.psyheart.adapter.ListSongCategoryAdapter
 import com.capstone.psyheart.databinding.ActivityDetailDiscoverBinding
-import com.capstone.psyheart.model.CategoryItem
 import com.capstone.psyheart.model.Detail
 import com.capstone.psyheart.model.Songs
 import com.capstone.psyheart.ui.ViewModelFactory
 import com.capstone.psyheart.ui.discover.DiscoverFragment
-import com.capstone.psyheart.ui.discover.DiscoverViewModel
-import com.capstone.psyheart.ui.guide.GuideActivity
 import com.capstone.psyheart.ui.home_detail.HomeDetailActivity
-import com.capstone.psyheart.ui.login.LoginViewModel
 import com.capstone.psyheart.utils.ResultData
 
 class DiscoverDetailActivity : AppCompatActivity() {

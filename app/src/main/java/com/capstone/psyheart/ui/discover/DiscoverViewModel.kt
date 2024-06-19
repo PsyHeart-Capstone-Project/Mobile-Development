@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capstone.psyheart.data.SongRepository
-import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.model.ErrorResponse
-import com.capstone.psyheart.model.LoginResponse
 import com.capstone.psyheart.model.SongCategoriesResponse
 import com.capstone.psyheart.utils.ResultData
 import com.google.gson.Gson

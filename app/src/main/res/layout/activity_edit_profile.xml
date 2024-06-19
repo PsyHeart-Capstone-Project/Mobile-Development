@@ -26,19 +26,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ic_back"
-            android:layout_toStartOf="@+id/tvSaveChanges"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/tvSaveChanges"
+            android:layout_toEndOf="@id/ic_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:text="@string/title_personal_data"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -50,26 +50,26 @@
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
             android:text="@string/edit_profile_title_msg"
             android:textColor="@android:color/holo_blue_dark"
-            android:gravity="center"
-            android:layout_marginEnd="20dp"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true" />
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginVertical="8dp">
+        android:layout_marginVertical="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edit_profile_full_name"
             android:layout_marginStart="10dp"
+            android:text="@string/name"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -78,11 +78,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:boxBackgroundColor="?attr/colorSurface"
             app:startIconDrawable="@drawable/ic_person"
-            app:startIconTint="?attr/colorOnSurface"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            app:startIconTint="?attr/colorOnSurface">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFullName"
@@ -98,14 +98,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginVertical="8dp">
+        android:layout_marginVertical="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email"
             android:layout_marginStart="10dp"
+            android:text="@string/email"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -114,11 +114,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             app:boxBackgroundColor="?attr/colorSurface"
             app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="?attr/colorOnSurface"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            app:startIconTint="?attr/colorOnSurface">
 
             <com.capstone.psyheart.custom_view.CustomEmailText
                 android:id="@+id/etEmail"
@@ -134,14 +134,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginVertical="8dp">
+        android:layout_marginVertical="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edit_profile_new_pwd"
             android:layout_marginStart="10dp"
+            android:text="@string/edit_profile_new_pwd"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -154,11 +154,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:boxBackgroundColor="?attr/colorSurface"
                 app:startIconDrawable="@drawable/ic_lock"
-                app:startIconTint="?attr/colorOnSurface"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                app:startIconTint="?attr/colorOnSurface">
 
                 <com.capstone.psyheart.custom_view.CustomPasswordText
                     android:id="@+id/etPassword"
@@ -176,26 +176,26 @@
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
                 android:background="@null"
                 android:contentDescription="@string/title_ic_visible"
                 android:src="@drawable/ic_visible"
-                app:tint="?attr/colorOnSurface"
-                android:layout_marginEnd="10dp" />
+                app:tint="?attr/colorOnSurface" />
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginVertical="8dp">
+        android:layout_marginVertical="8dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="@string/edit_profile_confirm_pwd"
             android:textSize="16sp"
-            android:layout_marginStart="10dp"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -207,11 +207,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:boxBackgroundColor="?attr/colorSurface"
                 app:startIconDrawable="@drawable/ic_lock"
-                app:startIconTint="?attr/colorOnSurface"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                app:startIconTint="?attr/colorOnSurface">
 
                 <com.capstone.psyheart.custom_view.CustomPasswordText
                     android:id="@+id/etConfirmPassword"
@@ -229,11 +229,11 @@
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
                 android:background="@null"
                 android:contentDescription="@string/title_ic_visible"
                 android:src="@drawable/ic_visible"
-                app:tint="?attr/colorOnSurface"
-                android:layout_marginEnd="10dp" />
+                app:tint="?attr/colorOnSurface" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

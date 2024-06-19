@@ -3,7 +3,6 @@ package com.capstone.psyheart.ui.discover
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,11 +70,17 @@ class DiscoverFragment : Fragment() {
         discoverRv.layoutManager = GridLayoutManager(context, 2)
 
         val paddingBottom = 80 // Adjust the value as needed
-        discoverRv.setPadding(discoverRv.paddingLeft, discoverRv.paddingTop, discoverRv.paddingRight, paddingBottom)
+        discoverRv.setPadding(
+            discoverRv.paddingLeft,
+            discoverRv.paddingTop,
+            discoverRv.paddingRight,
+            paddingBottom
+        )
         discoverRv.clipToPadding = false
 
         listSongCategoryAdapter = ListSongCategoryAdapter(categories)
-        listSongCategoryAdapter.setOnItemClickCallback(object : ListSongCategoryAdapter.OnItemClickCallback {
+        listSongCategoryAdapter.setOnItemClickCallback(object :
+            ListSongCategoryAdapter.OnItemClickCallback {
             override fun onItemClicked(data: CategoryItem) {
                 val intent = Intent(context, DiscoverDetailActivity::class.java).apply {
                     putExtra(DISCOVER_FRAGMENT, data.id)

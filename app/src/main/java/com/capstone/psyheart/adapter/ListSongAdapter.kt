@@ -4,15 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.capstone.psyheart.databinding.ItemDiscoverBinding
 import com.capstone.psyheart.databinding.ItemSongBinding
-import com.capstone.psyheart.model.CategoryItem
 import com.capstone.psyheart.model.Songs
 
-class ListSongAdapter(private val listStories: List<Songs>) : RecyclerView.Adapter<ListSongAdapter.ListViewHolder>() {
+class ListSongAdapter(private val listStories: List<Songs>) :
+    RecyclerView.Adapter<ListSongAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {

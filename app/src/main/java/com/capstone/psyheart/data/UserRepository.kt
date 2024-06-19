@@ -12,12 +12,8 @@ class UserRepository private constructor(
     private val userPreference: UserPreference
 ) {
 
-    suspend fun saveSession(user: UserModel) {
+    private fun saveSession(user: UserModel) {
         userPreference.setUser(user)
-    }
-
-    fun getSession(): UserModel {
-        return userPreference.getUser()
     }
 
     suspend fun logout(token: String) {
@@ -26,7 +22,7 @@ class UserRepository private constructor(
     }
 
     suspend fun updateProfile(name: String, email: String, password: String): ProfileResponse {
-        return apiService.editprofile(name, email, password, "Bearer ${userPreference.getUser().token}")
+        return apiService.editProfile(name, email, password, "Bearer ${userPreference.getUser().token}")
     }
 
     suspend fun register(name: String, email: String, password: String): RegisterResponse {
@@ -39,7 +35,7 @@ class UserRepository private constructor(
             name = response.loginResult.name,
             userId = response.loginResult.userId,
             token = response.loginResult.token,
-            email = email // Menyimpan email user yang digunakan untuk login
+            email = email
         )
         saveSession(user)
         return response

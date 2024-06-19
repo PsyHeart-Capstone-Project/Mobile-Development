@@ -45,6 +45,6 @@ class UserPreference(context: Context) {
         private const val USER_ID = "id"
         private const val USER_NAME = "name"
         private const val USER_TOKEN = "token"
-        private const val USER_EMAIL = "email" // Key untuk email
+        private const val USER_EMAIL = "email"
     }
 }

@@ -41,9 +41,9 @@ class QuestionnaireAdapter : RecyclerView.Adapter<QuestionnaireAdapter.QuestionV
             binding.radioGroupCondition.removeAllViews()
             question.options.forEach { option ->
                 val radioButton = RadioButton(binding.radioGroupCondition.context).apply {
-                    text = option.toString()
+                    text = option
                     setOnClickListener {
-                        answers[question.questionId] = option.toString()
+                        answers[question.questionId] = option
                     }
                 }
                 binding.radioGroupCondition.addView(radioButton)

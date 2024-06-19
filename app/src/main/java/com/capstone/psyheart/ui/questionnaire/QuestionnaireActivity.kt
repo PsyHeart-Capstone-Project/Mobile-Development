@@ -3,27 +3,16 @@ package com.capstone.psyheart.ui.questionnaire
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.capstone.psyheart.R
-import com.capstone.psyheart.adapter.ListSongAdapter
 import com.capstone.psyheart.adapter.QuestionnaireAdapter
 import com.capstone.psyheart.databinding.ActivityQuestionnaireBinding
-import com.capstone.psyheart.model.Answer
-import com.capstone.psyheart.model.Detail
 import com.capstone.psyheart.model.Questions
-import com.capstone.psyheart.model.Songs
 import com.capstone.psyheart.ui.ViewModelFactory
-import com.capstone.psyheart.ui.discover_detail.DiscoverDetailActivity
-import com.capstone.psyheart.ui.discover_detail.DiscoverDetailViewModel
-import com.capstone.psyheart.ui.home.HomeFragment
-import com.capstone.psyheart.ui.home_detail.HomeDetailActivity
 import com.capstone.psyheart.ui.main.MainActivity
-import com.capstone.psyheart.ui.register.RegisterActivity
 import com.capstone.psyheart.ui.register.RegisterActivity.Companion.IS_NEW_USER
 import com.capstone.psyheart.utils.ResultData
 
@@ -43,7 +32,7 @@ class QuestionnaireActivity : AppCompatActivity() {
         adapter = QuestionnaireAdapter()
         binding.listQuestionnaire.adapter = adapter
 
-        val isNewUser = intent.getBooleanExtra(RegisterActivity.IS_NEW_USER, false)
+        val isNewUser = intent.getBooleanExtra(IS_NEW_USER, false)
 
         viewModel.getQuestionnaire()
 

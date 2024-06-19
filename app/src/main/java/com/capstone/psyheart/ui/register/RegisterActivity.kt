@@ -60,10 +60,12 @@ class RegisterActivity : AppCompatActivity() {
                 is ResultData.Loading -> {
                     showLoading(true)
                 }
+
                 is ResultData.Failure -> {
                     showLoading(false)
                     Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                 }
+
                 is ResultData.Success -> {
                     showLoading(false)
                     Toast.makeText(

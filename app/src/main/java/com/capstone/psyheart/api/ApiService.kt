@@ -1,7 +1,6 @@
 package com.capstone.psyheart.api
 
 import com.capstone.psyheart.model.Answer
-import com.capstone.psyheart.model.AnswerBody
 import com.capstone.psyheart.model.LoginResponse
 import com.capstone.psyheart.model.LogoutResponse
 import com.capstone.psyheart.model.ProfileResponse
@@ -76,7 +75,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @PUT("profiles")
-    suspend fun editprofile(
+    suspend fun editProfile(
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("new_password") password: String,

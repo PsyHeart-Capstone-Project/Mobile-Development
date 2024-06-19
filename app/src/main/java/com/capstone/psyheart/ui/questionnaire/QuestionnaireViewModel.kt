@@ -5,14 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capstone.psyheart.data.SongRepository
-import com.capstone.psyheart.data.UserRepository
 import com.capstone.psyheart.model.AnswerBody
 import com.capstone.psyheart.model.ErrorResponse
-import com.capstone.psyheart.model.LoginResponse
 import com.capstone.psyheart.model.QuestionnaireResponse
 import com.capstone.psyheart.model.QuestionnaireSubmitResponse
-import com.capstone.psyheart.model.SongCategoriesByIDResponse
-import com.capstone.psyheart.model.SongCategoriesResponse
 import com.capstone.psyheart.utils.ResultData
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
@@ -38,8 +34,11 @@ class QuestionnaireViewModel(private val repository: SongRepository) : ViewModel
         }
     }
 
-    private val _resultSubmitQuestionnaire = MutableLiveData<ResultData<QuestionnaireSubmitResponse>>()
-    val resultSubmitQuestionnaire: LiveData<ResultData<QuestionnaireSubmitResponse>> = _resultSubmitQuestionnaire
+    private val _resultSubmitQuestionnaire =
+        MutableLiveData<ResultData<QuestionnaireSubmitResponse>>()
+    val resultSubmitQuestionnaire: LiveData<ResultData<QuestionnaireSubmitResponse>> =
+        _resultSubmitQuestionnaire
+
     fun submitQuestionnaire(isNewUser: Boolean, answers: List<AnswerBody>) {
         viewModelScope.launch {
             _resultSubmitQuestionnaire.value = ResultData.Loading

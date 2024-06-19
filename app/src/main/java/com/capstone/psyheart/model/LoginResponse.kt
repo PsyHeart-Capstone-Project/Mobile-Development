@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class LoginResponse(
-    @field:SerializedName("loginResult")
+    @field:SerializedName("data")
     val loginResult: LoginResult,
 
     @field:SerializedName("message")

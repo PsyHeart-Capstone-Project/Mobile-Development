@@ -8,32 +8,13 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-// import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor;
 
 object ApiConfig {
     fun getApiService(): ApiService {
-        /*val loggingInterceptor =
-            HttpLoggingInterceptor().setLevel(
-                if (com.capstone.psyheart.BuildConfig.DEBUG)
-                    HttpLoggingInterceptor.Level.BODY
-                else
-                    HttpLoggingInterceptor.Level.NONE
-            )*/
-
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(
-                    HttpLoggingInterceptor.Level.BODY
+                HttpLoggingInterceptor.Level.BODY
             )
-
-       /* val builder = OkHttpClient.Builder()
-        if (BuildConfig.DEBUG) {
-            builder.addInterceptor( OkHttpProfilerInterceptor() )
-        }
-        val client = builder.build()
-        val retrofit = Retrofit.Builder()
-        ......
-        .client(client)
-            .build()*/
 
         val authInterceptor = Interceptor { chain ->
             val req = chain.request()
@@ -46,15 +27,8 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .addInterceptor(authInterceptor)
             .addInterceptor(ChuckerInterceptor(getAppContext()))
-             .addInterceptor( OkHttpProfilerInterceptor() )
+            .addInterceptor(OkHttpProfilerInterceptor())
             .build()
-
-        /*// if (BuildConfig.DEBUG) {
-        val apiLogInterceptor = ChuckerInterceptor.Builder(getAppContext()).build()
-        clientBuilder.addInterceptor(apiLogInterceptor)
-        // }
-
-        val client = clientBuilder.build()*/
 
         val retrofit = Retrofit.Builder()
             .baseUrl(com.capstone.psyheart.BuildConfig.API_URL)
