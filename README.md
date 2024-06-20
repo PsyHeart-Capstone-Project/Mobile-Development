@@ -14,21 +14,21 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 
 ### Authentication
 <div style="display: flex; justify-content: center;">
-    <img src="app/src/main/res/app-screenshot/login.jpg" width="144" style="margin-right: 10px;">
-    <img src="app/src/main/res/app-screenshot/signup.jpg" width="144" style="margin-left: 10px;">
+    <img src="app/src/main/res/app-screenshot/login.jpg" width="576" style="margin-right: 10px;">
+    <img src="app/src/main/res/app-screenshot/signup.jpg" width="576" style="margin-left: 10px;">
 </div>
 
 ### Menus
 <div style="display: flex; justify-content: center;">
-    <img src="app/src/main/res/app-screenshot/home.jpg" width="144" style="margin-right: 10px;">
-    <img src="app/src/main/res/app-screenshot/discover.jpg" width="144" style="margin-left: 10px; margin-right: 10px;">
-    <img src="app/src/main/res/app-screenshot/profile.jpg" width="144" style="margin-left: 10px;">
+    <img src="app/src/main/res/app-screenshot/home.jpg" width="576" style="margin-right: 10px;">
+    <img src="app/src/main/res/app-screenshot/discover.jpg" width="576" style="margin-left: 10px; margin-right: 10px;">
+    <img src="app/src/main/res/app-screenshot/profile.jpg" width="576" style="margin-left: 10px;">
 </div>
 
 ### Questionnaire
 <div style="display: flex; justify-content: center;">
-    <img src="app/src/main/res/app-screenshot/guide.jpg" width="144" style="margin-left: 10px;">
-    <img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="144" style="margin-right: 10px;">
+    <img src="app/src/main/res/app-screenshot/guide.jpg" width="576" style="margin-left: 10px;">
+    <img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="576" style="margin-right: 10px;">
 </div>
 
 ## Installation
