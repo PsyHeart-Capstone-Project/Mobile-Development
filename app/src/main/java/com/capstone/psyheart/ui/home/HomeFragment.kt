@@ -1,11 +1,14 @@
 package com.capstone.psyheart.ui.home
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +30,7 @@ class HomeFragment : Fragment() {
     private lateinit var factory: ViewModelFactory
     private val viewModel: HomeViewModel by viewModels { factory }
     private lateinit var root: View
+    private var loadingDialog: Dialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,6 +57,7 @@ class HomeFragment : Fragment() {
 
                     is ResultData.Failure -> {
                         loadingHandler(false)
+                        Toast.makeText(requireContext(), result.error, Toast.LENGTH_SHORT).show()
                     }
 
                     is ResultData.Success -> {
@@ -66,6 +71,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadingHandler(isLoading: Boolean) {
+        if (isLoading) {
+            showLoadingPopup()
+        } else {
+            hideLoadingPopup()
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showLoadingPopup() {
+        if (loadingDialog == null) {
+            loadingDialog = Dialog(requireContext(), android.R.style.Theme_Translucent_NoTitleBar).apply {
+                val view: View = LayoutInflater.from(context)
+                    .inflate(com.capstone.psyheart.R.layout.loading_layout, null)
+                setContentView(view)
+                setCancelable(false)
+            }
+        }
+        loadingDialog?.show()
+    }
+
+    private fun hideLoadingPopup() {
+        loadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     private fun setupViewHeader(mood: String) {

@@ -1,8 +1,11 @@
 package com.capstone.psyheart.ui.register
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -24,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(this)
     }
     private lateinit var binding: ActivityRegisterBinding
+    private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,16 +62,16 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.registerResult.observe(this@RegisterActivity) { result ->
             when (result) {
                 is ResultData.Loading -> {
-                    showLoading(true)
+                    loadingHandler(true)
                 }
 
                 is ResultData.Failure -> {
-                    showLoading(false)
+                    loadingHandler(false)
                     Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                 }
 
                 is ResultData.Success -> {
-                    showLoading(false)
+                    loadingHandler(false)
                     Toast.makeText(
                         this,
                         "${getString(R.string.congrats)} ${result.data.message}",
@@ -101,8 +105,29 @@ class RegisterActivity : AppCompatActivity() {
         )
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    private fun loadingHandler(isLoading: Boolean) {
+        if (isLoading) {
+            showLoadingPopup()
+        } else {
+            hideLoadingPopup()
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showLoadingPopup() {
+        if (loadingDialog == null) {
+            loadingDialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar).apply {
+                val view: View = LayoutInflater.from(context)
+                    .inflate(R.layout.loading_layout, null)
+                setContentView(view)
+                setCancelable(false)
+            }
+        }
+        loadingDialog?.show()
+    }
+
+    private fun hideLoadingPopup() {
+        loadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     companion object {

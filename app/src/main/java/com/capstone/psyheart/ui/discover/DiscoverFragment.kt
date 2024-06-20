@@ -1,14 +1,18 @@
 package com.capstone.psyheart.ui.discover
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.capstone.psyheart.R
 import com.capstone.psyheart.adapter.ListSongCategoryAdapter
 import com.capstone.psyheart.databinding.FragmentDiscoverBinding
 import com.capstone.psyheart.model.CategoryItem
@@ -24,6 +28,7 @@ class DiscoverFragment : Fragment() {
     private lateinit var factory: ViewModelFactory
     private val discoverViewModel: DiscoverViewModel by viewModels { factory }
     private lateinit var root: View
+    private var loadingDialog: Dialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,6 +54,7 @@ class DiscoverFragment : Fragment() {
 
                     is ResultData.Failure -> {
                         loadingHandler(false)
+                        Toast.makeText(requireContext(), result.error, Toast.LENGTH_SHORT).show()
                     }
 
                     is ResultData.Success -> {
@@ -58,9 +64,6 @@ class DiscoverFragment : Fragment() {
                 }
             }
         }
-    }
-
-    private fun loadingHandler(isLoading: Boolean) {
     }
 
     private fun setupView(context: Context, categories: List<CategoryItem>) {
@@ -88,6 +91,32 @@ class DiscoverFragment : Fragment() {
             }
         })
         discoverRv.adapter = listSongCategoryAdapter
+    }
+
+    private fun loadingHandler(isLoading: Boolean) {
+        if (isLoading) {
+            showLoadingPopup()
+        } else {
+            hideLoadingPopup()
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showLoadingPopup() {
+        if (loadingDialog == null) {
+            loadingDialog =
+                Dialog(requireContext(), android.R.style.Theme_Translucent_NoTitleBar).apply {
+                    val view: View =
+                        LayoutInflater.from(context).inflate(R.layout.loading_layout, null)
+                    setContentView(view)
+                    setCancelable(false)
+                }
+        }
+        loadingDialog?.show()
+    }
+
+    private fun hideLoadingPopup() {
+        loadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     override fun onDestroyView() {

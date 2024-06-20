@@ -1,9 +1,13 @@
 package com.capstone.psyheart.ui.discover_detail
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,7 +27,7 @@ class DiscoverDetailActivity : AppCompatActivity() {
     private val viewModel by viewModels<DiscoverDetailViewModel> {
         ViewModelFactory.getInstance(this)
     }
-    private lateinit var root: View
+    private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +50,7 @@ class DiscoverDetailActivity : AppCompatActivity() {
 
                     is ResultData.Failure -> {
                         loadingHandler(false)
+                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                     }
 
                     is ResultData.Success -> {
@@ -59,6 +64,28 @@ class DiscoverDetailActivity : AppCompatActivity() {
     }
 
     private fun loadingHandler(isLoading: Boolean) {
+        if (isLoading) {
+            showLoadingPopup()
+        } else {
+            hideLoadingPopup()
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showLoadingPopup() {
+        if (loadingDialog == null) {
+            loadingDialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar).apply {
+                val view: View = LayoutInflater.from(context)
+                    .inflate(com.capstone.psyheart.R.layout.loading_layout, null)
+                setContentView(view)
+                setCancelable(false)
+            }
+        }
+        loadingDialog?.show()
+    }
+
+    private fun hideLoadingPopup() {
+        loadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     private fun setupViewHeader(detail: Detail) {

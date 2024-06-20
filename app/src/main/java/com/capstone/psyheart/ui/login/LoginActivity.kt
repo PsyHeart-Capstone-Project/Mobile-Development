@@ -1,8 +1,11 @@
 package com.capstone.psyheart.ui.login
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -21,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel by viewModels<LoginViewModel> {
         ViewModelFactory.getInstance(this)
     }
+    private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,12 +85,27 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loadingHandler(isLoading: Boolean) {
         if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-            binding.root.visibility = View.GONE
+            showLoadingPopup()
         } else {
-            binding.progressBar.visibility = View.GONE
-            binding.root.visibility = View.VISIBLE
+            hideLoadingPopup()
         }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showLoadingPopup() {
+        if (loadingDialog == null) {
+            loadingDialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar).apply {
+                val view: View = LayoutInflater.from(context)
+                    .inflate(com.capstone.psyheart.R.layout.loading_layout, null)
+                setContentView(view)
+                setCancelable(false)
+            }
+        }
+        loadingDialog?.show()
+    }
+
+    private fun hideLoadingPopup() {
+        loadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     private fun saveLoginData(loginResponse: LoginResponse, email: String) {

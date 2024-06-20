@@ -1,8 +1,8 @@
 package com.capstone.psyheart.api
 
 import com.capstone.psyheart.App.Companion.getAppContext
+import com.capstone.psyheart.BuildConfig
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,15 +23,16 @@ object ApiConfig {
             chain.proceed(requestHeaders)
         }
 
-        val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .addInterceptor(authInterceptor)
-            .addInterceptor(ChuckerInterceptor(getAppContext()))
-            .addInterceptor(OkHttpProfilerInterceptor())
-            .build()
+        val client = OkHttpClient.Builder().apply {
+            addInterceptor(loggingInterceptor)
+            addInterceptor(authInterceptor)
+            if (BuildConfig.DEBUG) {
+                addInterceptor(ChuckerInterceptor(getAppContext()))
+            }
+        }.build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(com.capstone.psyheart.BuildConfig.API_URL)
+            .baseUrl(BuildConfig.API_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

@@ -3,13 +3,7 @@ package com.capstone.psyheart.ui.splash_screen
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.text.TextUtils
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.capstone.psyheart.constants.Constants
 import com.capstone.psyheart.databinding.ActivitySplashBinding
 import com.capstone.psyheart.model.UserModel
 import com.capstone.psyheart.preference.UserPreference
@@ -47,11 +41,6 @@ class SplashActivity : AppCompatActivity() {
     private fun navigate(intent: Intent) {
         startActivity(intent)
         finish()
-        /*val splashTimer: Long = Constants.SPLASH_TIMER
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(intent)
-            finish()
-        }, splashTimer)*/
     }
 
     private fun nextButtonHandler() {

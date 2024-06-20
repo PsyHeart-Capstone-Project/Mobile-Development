@@ -57,7 +57,7 @@ To run this project locally, follow these steps:
 
 You can download the APK file directly from the repository:
 
-- [PsyHeart.apk](app/src/main/res/apk/PsyHeart.apk)
+- [PsyHeart.apk](apk/PsyHeart.apk)
 
 ## Usage
 

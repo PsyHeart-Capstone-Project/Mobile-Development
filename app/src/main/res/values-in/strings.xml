@@ -92,4 +92,7 @@
     <string name="congrats">Selamat!</string>
     <string name="select_lang">Pilih Bahasa</string>
     <string name="select_theme">Pilih Tema</string>
+    <string name="fill_required">Harap isi kolom yang diperlukan</string>
+    <string name="pwd_not_match">Konfirmasi kata sandi tidak cocok</string>
+    <string name="success_update_profile">Profil berhasil diperbarui</string>
 </resources>

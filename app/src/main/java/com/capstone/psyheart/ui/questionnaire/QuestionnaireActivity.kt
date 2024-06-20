@@ -1,8 +1,12 @@
 package com.capstone.psyheart.ui.questionnaire
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +26,7 @@ class QuestionnaireActivity : AppCompatActivity() {
         ViewModelFactory.getInstance(this)
     }
     private lateinit var adapter: QuestionnaireAdapter
+    private var loadingDialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +66,7 @@ class QuestionnaireActivity : AppCompatActivity() {
 
                     is ResultData.Failure -> {
                         loadingHandler(false)
+                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                     }
 
                     is ResultData.Success -> {
@@ -81,12 +87,8 @@ class QuestionnaireActivity : AppCompatActivity() {
                     }
 
                     is ResultData.Failure -> {
-                        Toast.makeText(
-                            this,
-                            "Error",
-                            Toast.LENGTH_SHORT
-                        ).show()
                         loadingHandler(false)
+                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                     }
 
                     is ResultData.Success -> {
@@ -104,7 +106,27 @@ class QuestionnaireActivity : AppCompatActivity() {
     }
 
     private fun loadingHandler(isLoading: Boolean) {
-        // Handle loading state (e.g., show/hide progress bar)
+        if (isLoading) {
+            showLoadingPopup()
+        } else {
+            hideLoadingPopup()
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showLoadingPopup() {
+        if (loadingDialog == null) {
+            loadingDialog = Dialog(this, android.R.style.Theme_Translucent_NoTitleBar).apply {
+                val view: View = LayoutInflater.from(context).inflate(R.layout.loading_layout, null)
+                setContentView(view)
+                setCancelable(false)
+            }
+        }
+        loadingDialog?.show()
+    }
+
+    private fun hideLoadingPopup() {
+        loadingDialog?.takeIf { it.isShowing }?.dismiss()
     }
 
     private fun setupView(context: Context, questions: List<Questions>) {
