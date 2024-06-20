@@ -14,7 +14,8 @@ class QuestionnaireAdapter : RecyclerView.Adapter<QuestionnaireAdapter.QuestionV
     private val answers: MutableMap<Int, String> = mutableMapOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
-        val binding = ItemQuestionnaireBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemQuestionnaireBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return QuestionViewHolder(binding)
     }
 
@@ -35,7 +36,9 @@ class QuestionnaireAdapter : RecyclerView.Adapter<QuestionnaireAdapter.QuestionV
         val sortedAnswers = answers.toList().sortedBy { it.first }
         return sortedAnswers.map { AnswerBody(it.first, it.second) }
     }
-    inner class QuestionViewHolder(private val binding: ItemQuestionnaireBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    inner class QuestionViewHolder(private val binding: ItemQuestionnaireBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(question: Questions) {
             binding.listQuestionnaire.text = question.questionText
             binding.radioGroupCondition.removeAllViews()

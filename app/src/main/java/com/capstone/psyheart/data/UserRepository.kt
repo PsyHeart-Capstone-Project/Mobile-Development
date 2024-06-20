@@ -22,7 +22,12 @@ class UserRepository private constructor(
     }
 
     suspend fun updateProfile(name: String, email: String, password: String): ProfileResponse {
-        return apiService.editProfile(name, email, password, "Bearer ${userPreference.getUser().token}")
+        return apiService.editProfile(
+            name,
+            email,
+            password,
+            "Bearer ${userPreference.getUser().token}"
+        )
     }
 
     suspend fun register(name: String, email: String, password: String): RegisterResponse {

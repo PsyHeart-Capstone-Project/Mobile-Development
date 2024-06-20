@@ -98,7 +98,7 @@ class HomeDetailActivity : AppCompatActivity() {
     }
 
     private fun setupMediaPlayer() {
-        mediaPlayer = MediaPlayer() // Initialize MediaPlayer here
+        mediaPlayer = MediaPlayer()
         songs =
             intent.getParcelableArrayListExtra<Songs>(DiscoverDetailActivity.MUSIC_PLAYER) ?: return
         currentSongIndex = intent.getIntExtra("CURRENT_SONG_INDEX", 0)

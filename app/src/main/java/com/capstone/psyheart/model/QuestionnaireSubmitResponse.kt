@@ -21,23 +21,6 @@ data class QuestionnaireData(
     val mood: String,
 ) : Parcelable
 
-
-//data class Questionnaire(
-//    @field:SerializedName("questions")
-//    val questions: List<Question>
-//)
-//
-//data class Question(
-//    @field:SerializedName("question_id")
-//    val questionID: Int,
-//
-//    @field:SerializedName("question_text")
-//    val questionText: String,
-//
-//    @field:SerializedName("options")
-//    val options: List<String>
-//)
-
 data class Answer(
     @field:SerializedName("answers")
     val answers: List<AnswerBody>,

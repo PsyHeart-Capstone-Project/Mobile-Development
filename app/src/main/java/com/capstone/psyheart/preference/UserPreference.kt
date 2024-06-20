@@ -1,7 +1,6 @@
 package com.capstone.psyheart.preference
 
 import android.content.Context
-import android.util.Log
 import com.capstone.psyheart.model.UserModel
 
 class UserPreference(context: Context) {
@@ -13,7 +12,7 @@ class UserPreference(context: Context) {
             putString(USER_NAME, value.name)
             putString(USER_ID, value.userId)
             putString(USER_TOKEN, value.token)
-            putString(USER_EMAIL, value.email) // Menyimpan email user
+            putString(USER_EMAIL, value.email)
             apply()
         }
     }
@@ -22,7 +21,7 @@ class UserPreference(context: Context) {
         val editor = prefs.edit()
         editor.apply {
             putString(USER_NAME, value.name)
-            putString(USER_EMAIL, value.email) // Menyimpan email user
+            putString(USER_EMAIL, value.email)
             apply()
         }
     }
@@ -31,7 +30,7 @@ class UserPreference(context: Context) {
         val name = prefs.getString(USER_NAME, null)
         val userId = prefs.getString(USER_ID, null)
         val token = prefs.getString(USER_TOKEN, null)
-        val email = prefs.getString(USER_EMAIL, null) // Mengambil email user
+        val email = prefs.getString(USER_EMAIL, null)
         return UserModel(userId, name, token, email)
     }
 

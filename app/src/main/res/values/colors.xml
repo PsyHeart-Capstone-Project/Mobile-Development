@@ -5,14 +5,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0074D9</color>
     <color name="red">#FF0000</color>
-
     <color name="primaryColor">#0074D9</color>
     <color name="primaryColorVariant">#005bb5</color>
-    <color name="onPrimaryColor">#FFFFFF</color>
+    <color name="onPrimaryColor">#FFFFFFFF</color>
 
     <color name="secondaryColor">#878787</color>
     <color name="secondaryColorVariant">#a9a9a9</color>
-    <color name="onSecondaryColor">#FFFFFF</color>
+    <color name="onSecondaryColor">#FFFFFFFF</color>
 
     <!-- Dark Theme Colors -->
     <color name="primaryColorDark">#80DFFF</color>
@@ -24,9 +23,9 @@
     <color name="onSecondaryColorDark">#000000</color>
 
     <color name="surfaceDark">#121212</color>
-    <color name="onSurfaceDark">#FFFFFF</color>
+    <color name="onSurfaceDark">#FFFFFFFF</color>
     <color name="backgroundDark">#121212</color>
-    <color name="onBackgroundDark">#FFFFFF</color>
+    <color name="onBackgroundDark">#FFFFFFFF</color>
     <color name="errorDark">#CF6679</color>
     <color name="onErrorDark">#000000</color>
 </resources>

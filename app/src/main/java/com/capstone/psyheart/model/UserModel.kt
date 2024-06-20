@@ -1,10 +1,10 @@
 package com.capstone.psyheart.model
 
-import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class UserModel (
+data class UserModel(
     var userId: String? = null,
     var name: String? = null,
     var token: String? = null,

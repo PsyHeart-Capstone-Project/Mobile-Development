@@ -66,7 +66,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadingHandler(isLoading: Boolean) {
-        // Handle loading state (e.g., show/hide progress bar)
     }
 
     private fun setupViewHeader(mood: String) {

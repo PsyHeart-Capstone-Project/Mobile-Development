@@ -1,6 +1,5 @@
 package com.capstone.psyheart.utils
 
-import com.capstone.psyheart.R
 import com.capstone.psyheart.constants.Constants
 
 fun isValidEmail(email: String): Boolean {

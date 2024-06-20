@@ -29,5 +29,4 @@ class GuideActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }

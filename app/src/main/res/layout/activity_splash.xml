@@ -64,7 +64,7 @@
         android:fontFamily="@font/poppins_bold"
         android:text="@string/start"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -10,7 +10,8 @@ import com.bumptech.glide.Glide
 import com.capstone.psyheart.databinding.ItemDiscoverBinding
 import com.capstone.psyheart.model.CategoryItem
 
-class ListSongCategoryAdapter(private val listStories: List<CategoryItem>) : RecyclerView.Adapter<ListSongCategoryAdapter.ListViewHolder>() {
+class ListSongCategoryAdapter(private val listStories: List<CategoryItem>) :
+    RecyclerView.Adapter<ListSongCategoryAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {

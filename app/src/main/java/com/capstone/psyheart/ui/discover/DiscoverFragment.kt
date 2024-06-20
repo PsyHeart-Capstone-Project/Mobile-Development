@@ -61,7 +61,6 @@ class DiscoverFragment : Fragment() {
     }
 
     private fun loadingHandler(isLoading: Boolean) {
-        // Handle loading state (e.g., show/hide progress bar)
     }
 
     private fun setupView(context: Context, categories: List<CategoryItem>) {

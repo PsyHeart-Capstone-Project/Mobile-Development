@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/spinner_border"
         android:drawableEnd="@drawable/ic_back"
@@ -113,14 +113,14 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_bold"
             android:gravity="center_vertical"
             android:paddingStart="16dp"
             android:paddingTop="12dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"
             android:text="@string/logout"
-            android:textColor="@color/red"
+            android:textColor="@color/blue"
             android:textSize="16sp" />
     </com.google.android.material.card.MaterialCardView>
 

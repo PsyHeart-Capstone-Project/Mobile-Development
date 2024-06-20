@@ -1,14 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base Light Theme -->
-    <style name="Base.Theme.PsyHeart" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primaryColor</item>
+    <style name="Base.Theme.PsyHeart" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryColorVariant</item>
-        <item name="colorOnPrimary">@color/onPrimaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
 
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryColorVariant</item>
         <item name="colorOnSecondary">@color/onSecondaryColor</item>
-
         <item name="colorSurface">?android:colorBackground</item>
         <item name="colorError">#B00020</item>
         <item name="colorOnError">#FFFFFF</item>

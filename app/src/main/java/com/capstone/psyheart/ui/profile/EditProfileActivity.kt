@@ -1,6 +1,6 @@
 package com.capstone.psyheart.ui.profile
 
-import EditProfileViewModel
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -56,7 +56,6 @@ class EditProfileActivity : AppCompatActivity() {
         binding.icBack.setOnClickListener {
             onBackPressed()
         }
-
 
         binding.tvSaveChanges.setOnClickListener {
             name = binding.etFullName.text.toString()
@@ -117,6 +116,7 @@ class EditProfileActivity : AppCompatActivity() {
         )
     }
 
+    @SuppressLint("PrivateResource")
     private fun togglePasswordVisibility() {
         if (isPasswordVisible) {
             binding.etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
@@ -126,9 +126,10 @@ class EditProfileActivity : AppCompatActivity() {
             binding.icVisible.setImageResource(R.drawable.ic_visible)
         }
         isPasswordVisible = !isPasswordVisible
-        binding.etPassword.setSelection(binding.etPassword.text!!.length) // Move cursor to the end
+        binding.etPassword.setSelection(binding.etPassword.text!!.length)
     }
 
+    @SuppressLint("PrivateResource")
     private fun togglePasswordConfirmVisibility() {
         if (isPasswordVisibleconfirm) {
             binding.etConfirmPassword.transformationMethod =
@@ -140,6 +141,6 @@ class EditProfileActivity : AppCompatActivity() {
             binding.icVisibleConfirm.setImageResource(R.drawable.ic_visible)
         }
         isPasswordVisibleconfirm = !isPasswordVisibleconfirm
-        binding.etConfirmPassword.setSelection(binding.etConfirmPassword.text!!.length) // Move cursor to the end
+        binding.etConfirmPassword.setSelection(binding.etConfirmPassword.text!!.length)
     }
 }

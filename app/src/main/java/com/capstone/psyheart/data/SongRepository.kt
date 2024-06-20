@@ -31,11 +31,17 @@ class SongRepository private constructor(
     }
 
     suspend fun postQuestionnaire(answers: List<AnswerBody>): QuestionnaireSubmitResponse {
-        return apiService.questionnairePost("Bearer ${userPreference.getUser().token}", Answer(answers))
+        return apiService.questionnairePost(
+            "Bearer ${userPreference.getUser().token}",
+            Answer(answers)
+        )
     }
 
     suspend fun putQuestionnaire(answers: List<AnswerBody>): QuestionnaireSubmitResponse {
-        return apiService.questionnairePut("Bearer ${userPreference.getUser().token}", Answer(answers))
+        return apiService.questionnairePut(
+            "Bearer ${userPreference.getUser().token}",
+            Answer(answers)
+        )
     }
 
     companion object {

@@ -7,7 +7,7 @@ data class ProfileResponse(
 )
 
 data class UserData(
-    val user_id: String,
+    val userId: String,
     val email: String,
     val name: String
 )

@@ -14,11 +14,9 @@ class ProfileViewModel(private val repository: UserRepository) : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-
     fun logout(token: String) {
         viewModelScope.launch {
             repository.logout(token)
         }
     }
-
 }

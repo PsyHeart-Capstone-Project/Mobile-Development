@@ -6,7 +6,7 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 
 ## Features
 
-- **Mood Analysis**: Input your current mood and get personalized music recommendations.
+- **Mood Analysis**: Fill out the questionnaire and get personalized music recommendations.
 - **Music Library**: A curated library of therapeutic music tracks.
 - **User-Friendly Interface**: Simple and intuitive design for easy navigation.
 
@@ -26,11 +26,10 @@ Psy Heart is an Android application developed as part of the Bangkit Academy Cap
 </div>
 
 ### Questionnaire
-<div style="display: flex; justify-content: center;">ed
+<div style="display: flex; justify-content: center;">
     <img src="app/src/main/res/app-screenshot/guide.jpg" width="144" style="margin-left: 10px;">
     <img src="app/src/main/res/app-screenshot/questionnaire.jpg" width="144" style="margin-right: 10px;">
 </div>
-
 
 ## Installation
 
@@ -42,17 +41,23 @@ To run this project locally, follow these steps:
     ```
 
 2. **Open the project in Android Studio**:
-    - Open Android Studio.
-    - Select `Open an existing project`.
-    - Navigate to the cloned repository folder and select it.
+   - Open Android Studio.
+   - Select `Open an existing project`.
+   - Navigate to the cloned repository folder and select it.
 
 3. **Build the project**:
-    - Let Android Studio download and install any required dependencies.
-    - Build the project using the Build menu or the toolbar button.
+   - Let Android Studio download and install any required dependencies.
+   - Build the project using the Build menu or the toolbar button.
 
 4. **Run the app**:
-    - Connect an Android device or use an emulator.
-    - Run the app from Android Studio.
+   - Connect an Android device or use an emulator.
+   - Run the app from Android Studio.
+
+## APK Download
+
+You can download the APK file directly from the repository:
+
+- [PsyHeart.apk](app/src/main/res/apk/PsyHeart.apk)
 
 ## Usage
 
